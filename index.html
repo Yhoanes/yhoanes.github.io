@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="DgvjRDzGBHEDhDBqfUjo9qhoZBdBrGkTyBmM5uWyEOc" />
   <title>Yhoanes (Yhoanes Ander Mendoza Rodriguez) — Creator of Antigravity for Android &amp; AI Systems Engineer</title>
-  <meta name="description" content="Official engineering portfolio of Yhoanes (Yhoanes Ander Mendoza Rodriguez): creator of Antigravity for Android v2.32.0 (standalone ARM64 Google Antigravity IDE &amp; Ghidra 12.1.4 APK), AI Engineering Harness, Ferretería 7 Hermanos ERP, and Albion Flip Finder." />
+  <meta name="description" content="Official engineering portfolio of Yhoanes (Yhoanes Ander Mendoza Rodriguez): creator of Antigravity for Android (standalone ARM64 Google Antigravity IDE &amp; Ghidra 12.1.4 APK), AI Engineering Harness, Ferretería 7 Hermanos ERP, and Albion Flip Finder." />
   <meta name="author" content="Yhoanes Ander Mendoza Rodriguez" />
   <link rel="canonical" href="https://yhoanes.github.io/" />
   <link rel="alternate" type="text/plain" title="LLM Documentation" href="https://yhoanes.github.io/llms.txt" />
@@ -54,7 +54,7 @@
             "@type": "ListItem",
             "position": 1,
             "url": "https://yhoanes.github.io/antigravity-android/",
-            "name": "Antigravity for Android v2.32.0"
+            "name": "Antigravity for Android"
           },
           {
             "@type": "ListItem",
@@ -108,7 +108,7 @@
         <div>
           <div class="version-pill">
             <span class="version-dot" aria-hidden="true"></span>
-            <span>Flagship Release &middot; Antigravity for Android v2.32.0</span>
+            <span id="home-release-badge">Flagship Release &middot; Antigravity for Android</span>
           </div>
           <h1>Yhoanes Ander Mendoza Rodriguez</h1>
           <p class="hero-lead">
@@ -127,9 +127,9 @@
         <div>
           <a href="antigravity-android/" aria-label="Open Antigravity for Android documentation">
             <div class="device-frame">
-              <img src="antigravity-android/assets/hero_home.jpg" alt="Antigravity for Android v2.32.0 by Yhoanes" width="960" height="600" />
+              <img src="antigravity-android/assets/hero_home.jpg" alt="Antigravity for Android by Yhoanes" width="960" height="600" />
               <p class="device-caption">
-                Featured: Antigravity for Android v2.32.0 — Standalone Google Antigravity IDE, Rust agy-box runtime &amp; native ARM64 Ghidra 12.1.4 APK.
+                Featured: Antigravity for Android — Standalone Google Antigravity IDE, Rust agy-box runtime &amp; native ARM64 Ghidra 12.1.4 APK.
               </p>
             </div>
           </a>
@@ -146,8 +146,8 @@
 
         <div class="spec-grid">
           <div class="spec-block">
-            <h3><a href="antigravity-android/">Antigravity for Android (v2.32.0)</a></h3>
-            <p>Standalone Google Antigravity autonomous coding IDE and native ARM64 Bionic reverse-engineering APK. Features single-binary Rust <code>agy-box</code>, 302 MCP tools, headless Ghidra 12.1.4, Live Voice WebRTC, and 1-tap OTA updates. <a href="https://github.com/Yhoanes/antigravity-android">Source &amp; Releases</a>.</p>
+            <h3><a href="antigravity-android/">Antigravity for Android</a></h3>
+            <p>Standalone Google Antigravity autonomous coding IDE and native ARM64 Bionic reverse-engineering APK. Features single-binary Rust <code>agy-box</code>, 302 MCP tools, headless Ghidra 12.1.4, Live Voice WebRTC, and 1-tap OTA updates. <a href="https://github.com/Yhoanes/antigravity-android/releases/latest">Latest Release</a>.</p>
           </div>
 
           <div class="spec-block">
@@ -156,7 +156,7 @@
           </div>
 
           <div class="spec-block">
-            <h3><a href="https://github.com/Yhoanes/ai-engineering-harness">AI Engineering Harness (v1.13.7)</a></h3>
+            <h3><a href="https://github.com/Yhoanes/ai-engineering-harness">AI Engineering Harness</a></h3>
             <p>Deterministic agent governance, JSON-Schema Task Contracts, RBAC authority matrices, automated secret scanning, and token-budgeted context packing across 18 agent profiles (684 automated tests in Python).</p>
           </div>
 
@@ -188,5 +188,16 @@
     </div>
   </footer>
 
+  <script>
+    fetch('https://api.github.com/repos/Yhoanes/antigravity-android/releases/latest')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (release) {
+        var el = document.getElementById('home-release-badge');
+        if (el && release && release.tag_name) {
+          el.textContent = 'Flagship Release \u00b7 Antigravity for Android ' + release.tag_name;
+        }
+      })
+      .catch(function () {});
+  </script>
 </body>
 </html>
