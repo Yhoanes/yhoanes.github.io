@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antigravity for Android (APK) — Native Google Antigravity IDE &amp; ARM64 Ghidra Suite by Yhoanes</title>
+  <meta name="description" content="Download Antigravity for Android v2.32.0 by Yhoanes: standalone Google Antigravity autonomous coding IDE &amp; native ARM64 Bionic reverse-engineering APK with Rust agy-box, Ghidra 12.1.4, Live Voice WebRTC, and Smart Marketplace. No PRoot or root required." />
+  <meta name="author" content="Yhoanes Ander Mendoza Rodriguez (Yhoanes)" />
+  <meta name="keywords" content="Antigravity for Android, Google Antigravity Android, Antigravity APK, Yhoanes, Google Antigravity IDE mobile, Antigravity Termux alternative, Ghidra Android ARM64, Bionic IDE Android, Craft Anything MCP, agy-box Rust" />
+  <link rel="canonical" href="https://yhoanes.github.io/antigravity-android/" />
+  <link rel="alternate" type="text/plain" title="LLM Documentation" href="https://yhoanes.github.io/llms.txt" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Antigravity for Android — Yhoanes" />
+  <meta property="og:title" content="Antigravity for Android v2.32.0 — Standalone Google Antigravity IDE &amp; ARM64 Ghidra APK" />
+  <meta property="og:description" content="Bare-metal Android Bionic autonomous coding IDE &amp; binary reverse-engineering suite by Yhoanes. Rust agy-box runtime, 302 MCP tools, native Ghidra 12.1.4, Live Voice &amp; GPU Video Studio." />
+  <meta property="og:url" content="https://yhoanes.github.io/antigravity-android/" />
+  <meta property="og:image" content="https://yhoanes.github.io/antigravity-android/assets/hero_home.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Antigravity for Android v2.32.0 (by Yhoanes)" />
+  <meta name="twitter:description" content="Standalone Google Antigravity IDE &amp; native ARM64 reverse-engineering APK (Bionic, Rust agy-box, Ghidra 12.1.4, Live Voice). Zero PRoot overhead." />
+  <meta name="twitter:image" content="https://yhoanes.github.io/antigravity-android/assets/hero_home.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Structured Data: SoftwareApplication + Author + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://yhoanes.github.io/#person",
+        "name": "Yhoanes Ander Mendoza Rodriguez",
+        "alternateName": "Yhoanes",
+        "url": "https://yhoanes.github.io/",
+        "sameAs": [
+          "https://github.com/Yhoanes"
+        ],
+        "jobTitle": "Software & AI Systems Engineer"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://yhoanes.github.io/antigravity-android/#software",
+        "name": "Antigravity for Android",
+        "alternateName": [
+          "Google Antigravity for Android APK",
+          "Antigravity Android Native IDE",
+          "Yhoanes Antigravity Android"
+        ],
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Android 7.0+ (ARM64 / AArch64)",
+        "softwareVersion": "2.32.0",
+        "url": "https://yhoanes.github.io/antigravity-android/",
+        "downloadUrl": "https://github.com/Yhoanes/antigravity-android/releases/download/v2.32.0/Antigravity-v2.32.0.apk",
+        "installUrl": "https://github.com/Yhoanes/antigravity-android/releases/latest",
+        "releaseNotes": "https://github.com/Yhoanes/antigravity-android/releases/tag/v2.32.0",
+        "screenshot": "https://yhoanes.github.io/antigravity-android/assets/hero_home.jpg",
+        "fileSize": "120MB",
+        "author": {
+          "@id": "https://yhoanes.github.io/#person"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Standalone native Android ARM64 (Bionic/Glibc) autonomous coding IDE and binary reverse-engineering environment powered by Google Antigravity v2.32.0, single-binary Rust agy-box engine, 302 Craft Anything MCP tools, and native Ghidra 12.1.4."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://yhoanes.github.io/antigravity-android/#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is Antigravity for Android different from running Google Antigravity in Termux or PRoot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike Termux proot-distro or QEMU containers that intercept every Linux syscall in userspace, Antigravity for Android executes directly inside Android Bionic/Glibc userspace with the native Rust agy-box accelerator. It delivers 1,222 MB/s sequential UFS reads, 84,395 random write IOPS, full WebView Workbench v2.32.0 UI, bidirectional WebRTC voice chat, and 1-tap OTA APK updates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Antigravity for Android require root access?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No root access is required. Binary-level patches in liblanguage_server.so bypass Linux CLONE_NEWUSER and seccomp sandbox restrictions on unrooted Android 7.0+ kernels, while liblse_compat.so emulates ARMv8.1 LSE atomics on older ARMv8.0-A devices. Optional Shizuku (rish) support enables silent 1-tap APK upgrades and on-device ADB automation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Antigravity for Android decompile binaries with Ghidra natively on ARM64?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Installing Craft Anything + Ghidra from the Built for Android Marketplace enables 302 native ARM64 Rust MCP tools immediately with zero extra downloads, plus a 1-command installer (craft-ghidra-setup) that configures OpenJDK 21 and native Android Bionic ARM64 Ghidra 12.1.4 decompile and sleigh binaries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI models are supported in Antigravity for Android v2.32.0?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Version 2.32.0 supports Orchestrator (Carbon), Orchestrator (Argon), Gemini 4 Carbon, Gemini 4 Argon, Gemini 4 Hydrogen, Gemini 3.8 Flash, Claude Opus 5.5, Claude Sonnet 5.5, and GPT-OSS 120B, with touch-friendly reasoning effort controls and sub-second background HTTP/2 stream re-synchronization."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="https://yhoanes.github.io/antigravity-android/">
+        <img src="assets/logo.png" alt="Antigravity for Android icon" width="32" height="32" />
+        <span>Antigravity for Android</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#comparison">Architecture</a>
+        <a href="#walkthrough">Interface</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://yhoanes.github.io/">By Yhoanes</a>
+        <a href="https://github.com/Yhoanes/antigravity-android">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="version-pill">
+            <span class="version-dot" aria-hidden="true"></span>
+            <span>v2.32.0 &middot; Android 7.0+ ARM64 &middot; Engineered by Yhoanes</span>
+          </div>
+          <h1>Antigravity for Android</h1>
+          <p class="hero-lead">
+            Standalone <strong>Google Antigravity</strong> autonomous coding IDE and native <strong>ARM64 Bionic</strong> reverse-engineering APK. Runs directly on physical mobile silicon with the single-binary Rust <code>agy-box</code> runtime, 302 MCP binary tools, headless <strong>Ghidra 12.1.4</strong>, and Live Voice WebRTC — without PRoot, VNC, or root.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/Yhoanes/antigravity-android/releases/download/v2.32.0/Antigravity-v2.32.0.apk">
+              Download APK v2.32.0 (120 MB)
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Yhoanes/antigravity-android">
+              View Source on GitHub
+            </a>
+          </div>
+          <div class="checksum-box" aria-label="APK SHA-256 checksum">
+            <code id="apk-sha">SHA-256: 308c6fed9439c86a26e41acf6de0012d3ccf66d24aafe26fa011cf8b2eb69aae</code>
+            <button type="button" class="copy-btn" id="copy-sha-btn">Copy hash</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="device-frame">
+            <img src="assets/hero_home.jpg" alt="Antigravity for Android v2.32.0 autonomous agent workspace running natively on Android ARM64" width="960" height="600" />
+            <p class="device-caption">
+              v2.32.0 native Android workspace running Orchestrator (Carbon/Argon), Gemini 4 Hydrogen, and bidirectional Live Voice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Matrix -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <h2>Why native Bionic execution beats PRoot containers</h2>
+        <p class="section-intro">
+          Most Android ports run desktop Linux distributions inside <code>proot-distro</code>, paying a <code>ptrace</code> syscall translation penalty on every file read and compiler spawn. Antigravity for Android runs directly inside Android userspace.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Antigravity for Android (by Yhoanes)</th>
+                <th>Termux + PRoot Containers</th>
+                <th>Remote SSH / Thin Clients</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Execution layer</strong></td>
+                <td class="highlight-col">Native Android Bionic/Glibc loader + Rust <code>agy-box</code> (<code>398</code> direct <code>execve</code> symlinks)</td>
+                <td>Userspace <code>ptrace</code> syscall interception on every I/O call</td>
+                <td>Requires an external PC or paid cloud VM</td>
+              </tr>
+              <tr>
+                <td><strong>Unrooted terminal sandbox</strong></td>
+                <td class="highlight-col">Binary-patched <code>liblanguage_server.so</code> (zero <code>CLONE_NEWUSER</code> / <code>seccomp</code> crashes)</td>
+                <td>Frequent namespace and <code>seccomp</code> failures on Android 12–16</td>
+                <td>Host-dependent</td>
+              </tr>
+              <tr>
+                <td><strong>Reverse engineering</strong></td>
+                <td class="highlight-col">302 native ARM64 Rust MCP tools + on-device Bionic ARM64 <strong>Ghidra 12.1.4</strong></td>
+                <td>Manual compilation; slow JVM startup under PRoot</td>
+                <td>No local binary/APK inspection</td>
+              </tr>
+              <tr>
+                <td><strong>Background app switching</strong></td>
+                <td class="highlight-col"><code>&lt; 1s</code> HTTP/2 gRPC-Web stream resume guard (<code>ws-resume.js</code>)</td>
+                <td>Browser tab disconnects or stalls in background</td>
+                <td>Drops SSH / WebSocket tunnel</td>
+              </tr>
+              <tr>
+                <td><strong>Voice &amp; GPU media</strong></td>
+                <td class="highlight-col">Native WebRTC Live Voice + hardware GPU <code>h264_mediacodec</code> Video Studio</td>
+                <td>No hardware MediaCodec or WebAudio mic bridge</td>
+                <td>High latency</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware Benchmarks -->
+    <section class="section" id="benchmarks">
+      <div class="container">
+        <h2>Measured on-device UFS storage throughput</h2>
+        <p class="section-intro">
+          Multi-pass physical storage benchmark authored and executed directly by the autonomous agent inside Android userspace without virtualization overhead.
+        </p>
+
+        <div class="bench-list">
+          <div class="bench-row">
+            <div class="bench-meta">
+              <span class="bench-title">Sequential Read (1 MB blocks, 128 MB volume)</span>
+              <span class="bench-val">1,222.17 MB/s &middot; 1,222 IOPS</span>
+            </div>
+            <div class="bench-track"><div class="bench-fill" style="width: 100%;"></div></div>
+          </div>
+
+          <div class="bench-row">
+            <div class="bench-meta">
+              <span class="bench-title">Sequential Write with fsync (1 MB blocks, 128 MB volume)</span>
+              <span class="bench-val">809.04 MB/s &middot; 809 IOPS</span>
+            </div>
+            <div class="bench-track"><div class="bench-fill" style="width: 66%;"></div></div>
+          </div>
+
+          <div class="bench-row">
+            <div class="bench-meta">
+              <span class="bench-title">Random 4K Write with fsync (19.5 MB volume)</span>
+              <span class="bench-val">329.67 MB/s &middot; 84,395 IOPS</span>
+            </div>
+            <div class="bench-track"><div class="bench-fill" style="width: 84%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Runtime Specs -->
+    <section class="section">
+      <div class="container">
+        <h2>Core engineering in v2.32.0</h2>
+        <p class="section-intro">
+          Built upon foundational Bionic host work and heavily expanded by Yhoanes across binary patching, Rust systems tooling, and live OTA plugin delivery.
+        </p>
+
+        <div class="spec-grid">
+          <div class="spec-block">
+            <h3>Single-binary Rust <code>agy-box</code> engine</h3>
+            <p>Linked solely against Android's <code>libc.so</code> and <code>libdl.so</code> (<code>3.52 MiB</code>): 4-thread parallel <code>pkg</code> with pure-Rust TLS, event-driven <code>inotify</code> <code>agy-daemon</code> in <code>900 KB</code> heap, <code>112x</code> faster NEON path fixing, and <code>&lt; 55 ms</code> native notifications.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Next-gen multi-model Workbench</h3>
+            <p>Full support for <strong>Orchestrator (Carbon/Argon)</strong>, <strong>Gemini 4 Carbon / Argon / Hydrogen</strong>, <strong>Gemini 3.8 Flash</strong>, <strong>Claude Opus 5.5 / Sonnet 5.5</strong>, and <strong>GPT-OSS 120B</strong> with touch reasoning-effort submenus.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Two-tier ARM64 reverse engineering</h3>
+            <p>Tier 1 runs <strong>302 Rust MCP tools</strong> (<code>Craft Anything</code>) in <code>&lt; 50 MB</code> RAM for instant ELF, PE, Mach-O, APK/DEX, .NET, and WASM triage. Tier 2 installs native Bionic ARM64 <strong>Ghidra 12.1.4</strong> (<code>decompile</code> &amp; <code>sleigh</code>).</p>
+          </div>
+          <div class="spec-block">
+            <h3>1-tap OTA updater &amp; ARMv8.0-A compatibility</h3>
+            <p>Checks GitHub Releases directly from Workbench with silent Shizuku <code>pm install</code> or Android PackageInstaller fallback, plus transparent userspace <code>SIGILL</code> emulation (<code>liblse_compat.so</code>) for ARMv8.0-A CPUs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Real Device Walkthrough -->
+    <section class="section" id="walkthrough">
+      <div class="container">
+        <h2>Real device walkthrough</h2>
+        <p class="section-intro">
+          Captured directly on physical Android ARM64 hardware running <code>Antigravity-v2.32.0.apk</code>.
+        </p>
+
+        <div class="walkthrough-layout">
+          <div class="tab-list" role="tablist" aria-label="Interface captures">
+            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-re" id="tab-re" type="button">
+              <strong>Ghidra 12.1.4 + Live Voice</strong>
+              <span>Decompiling 32-bit Windows PE binaries (Warcraft III) on Android with live voice narration</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-market" id="tab-market" type="button">
+              <strong>Built for Android Marketplace</strong>
+              <span>1-tap OTA shelf for AGY Video Studio GPU, Craft Anything, GitHub MCP &amp; Chromium</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-models" id="tab-models" type="button">
+              <strong>Gemini 4 &amp; Orchestrator Selector</strong>
+              <span>Touch-adapted reasoning effort controls without desktop hover requirements</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-agents" id="tab-agents" type="button">
+              <strong>Parallel Subagent Workspace</strong>
+              <span>Simultaneous research and coding subagents with integrated terminal and review</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-voice" id="tab-voice" type="button">
+              <strong>Bidirectional WebRTC Voice</strong>
+              <span>Low-latency voice conversation with live floating transcription</span>
+            </button>
+          </div>
+
+          <div>
+            <div class="device-frame tab-panel" id="panel-re" role="tabpanel" aria-labelledby="tab-re">
+              <img src="assets/reverse_engineering_voice_demo.jpg" alt="Craft Anything and Ghidra 12.1.4 ARM64 decompiling Windows PE binaries directly on Android" loading="lazy" />
+              <p class="device-caption">Craft Anything + Ghidra 12.1.4 ARM64 decompiling Warcraft III PE binaries on Android while explaining call graphs over Live Voice.</p>
+            </div>
+            <div class="device-frame tab-panel" id="panel-market" role="tabpanel" aria-labelledby="tab-market" hidden>
+              <img src="assets/customizations_marketplace.jpg" alt="Smart Android Marketplace showing Built for Android native ARM64 plugins" loading="lazy" />
+              <p class="device-caption">Live Built for Android OTA shelf fused directly above Google Workspace inside Customizations &rarr; Marketplace.</p>
+            </div>
+            <div class="device-frame tab-panel" id="panel-models" role="tabpanel" aria-labelledby="tab-models" hidden>
+              <img src="assets/model_selector.jpg" alt="Model selector with Gemini 4 Carbon, Argon, Hydrogen, and Claude 5.5 on Android" loading="lazy" />
+              <p class="device-caption">Touch-patched model and reasoning-effort selector supporting Gemini 4 Carbon/Argon/Hydrogen, Orchestrator, and Claude 5.5.</p>
+            </div>
+            <div class="device-frame tab-panel" id="panel-agents" role="tabpanel" aria-labelledby="tab-agents" hidden>
+              <img src="assets/workspace_subagents.jpg" alt="Parallel subagent orchestration in Antigravity for Android" loading="lazy" />
+              <p class="device-caption">Multi-agent orchestration spawning parallel research and implementation subagents on mobile.</p>
+            </div>
+            <div class="device-frame tab-panel" id="panel-voice" role="tabpanel" aria-labelledby="tab-voice" hidden>
+              <img src="assets/voice_chat_live.jpg" alt="Real-time WebRTC voice mode in Antigravity for Android" loading="lazy" />
+              <p class="device-caption">Native WebRTC/WebAudio microphone pipeline with live floating transcript overlay.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built for Android Marketplace -->
+    <section class="section" id="marketplace">
+      <div class="container">
+        <h2>Built for Android plugin catalog</h2>
+        <p class="section-intro">
+          Delivered live over OTA from <a href="https://github.com/Yhoanes/antigravity-android-plugins">Yhoanes/antigravity-android-plugins</a> without rebuilding the APK. Tap <code>+</code> inside <em>Customizations &rarr; Marketplace</em> to install and auto-enable.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Plugin</th>
+                <th>Version</th>
+                <th>Native ARM64 Capabilities</th>
+                <th>Optional Toolchain Command</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>AGY Video Studio</strong></td>
+                <td><code>2.1.3</code></td>
+                <td>14 MCP tools: hardware GPU <code>h264_mediacodec</code> 16:9 &amp; 9:16 video rendering, neural ES/EN/PT TTS, CapCut drafts &amp; Shizuku automation</td>
+                <td><code>agy-video-setup</code></td>
+              </tr>
+              <tr>
+                <td><strong>Craft Anything + Ghidra</strong></td>
+                <td><code>0.4.0-r8</code></td>
+                <td>302 native ARM64 Rust MCP tools (0 downloads) + on-demand Bionic ARM64 <strong>Ghidra 12.1.4</strong> (<code>decompile</code> &amp; <code>sleigh</code>)</td>
+                <td><code>craft-ghidra-setup</code></td>
+              </tr>
+              <tr>
+                <td><strong>Game Studio 2D/3D</strong></td>
+                <td><code>1.1.0</code></td>
+                <td>12 Rust MCP tools: Godot 4 Vulkan Mobile (60–120 FPS) scaffolding, Sprite Atlas + Sobel normal maps, <code>.glb</code> LOD optimizer &amp; Shizuku FPS profiler</td>
+                <td><code>game-studio-setup</code></td>
+              </tr>
+              <tr>
+                <td><strong>GitHub (Local ARM64 MCP)</strong></td>
+                <td><code>2.1.1-android</code></td>
+                <td>91 native ARM64 GitHub MCP tools (<code>github-mcp-server</code> without Docker) + 1-command Bionic <code>git</code>/<code>gh</code> OAuth bridge</td>
+                <td><code>github-mcp-setup</code></td>
+              </tr>
+              <tr>
+                <td><strong>Chrome DevTools</strong></td>
+                <td><code>1.10.4-android</code></td>
+                <td>Headless ARM64 Chromium (<code>--no-sandbox</code>) MCP launcher + 6 official web performance, LCP &amp; accessibility skills</td>
+                <td><code>pkg install nodejs chromium</code></td>
+              </tr>
+              <tr>
+                <td><strong>Android CLI (On-Device)</strong></td>
+                <td><code>1.0.16625373</code></td>
+                <td>On-device <code>android</code> CLI bridge (<code>layout</code>, <code>screen capture</code>, <code>install</code>, <code>shell</code> via Shizuku <code>rish</code>)</td>
+                <td>Start Shizuku app</td>
+              </tr>
+              <tr>
+                <td><strong>Science (Android Clean)</strong></td>
+                <td><code>1.3.2-android</code></td>
+                <td>28 scientific skills (AlphaFold, ChEMBL, PubMed, RDKit, genomics) cleaned for Android ARM64</td>
+                <td>Zero setup required</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+        <p class="section-intro">
+          Technical answers on installation, kernel compatibility, and native binary analysis.
+        </p>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How is Antigravity for Android different from running Google Antigravity in Termux or PRoot?</summary>
+            <p>Unlike Termux <code>proot-distro</code> or QEMU containers that intercept every Linux syscall in userspace, Antigravity for Android executes directly inside Android Bionic/Glibc userspace with the native Rust <code>agy-box</code> accelerator. It delivers 1,222 MB/s sequential UFS reads, 84,395 random write IOPS, full WebView Workbench v2.32.0 UI, bidirectional WebRTC voice chat, and 1-tap OTA APK updates.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does Antigravity for Android require root access?</summary>
+            <p>No root access is required. Binary-level patches in <code>liblanguage_server.so</code> bypass Linux <code>CLONE_NEWUSER</code> and <code>seccomp</code> sandbox restrictions on unrooted Android 7.0+ kernels, while <code>liblse_compat.so</code> emulates ARMv8.1 LSE atomics on older ARMv8.0-A devices. Optional Shizuku (<code>rish</code>) support enables silent 1-tap APK upgrades and on-device ADB automation.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can Antigravity for Android decompile binaries with Ghidra natively on ARM64?</summary>
+            <p>Yes. Installing <strong>Craft Anything + Ghidra</strong> from the <em>Built for Android</em> Marketplace enables 302 native ARM64 Rust MCP tools immediately with zero extra downloads, plus a 1-command installer (<code>craft-ghidra-setup</code>) that configures OpenJDK 21 and native Android Bionic ARM64 Ghidra 12.1.4 <code>decompile</code> and <code>sleigh</code> binaries.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Which AI models are supported in Antigravity for Android v2.32.0?</summary>
+            <p>Version 2.32.0 supports Orchestrator (Carbon), Orchestrator (Argon), Gemini 4 Carbon, Gemini 4 Argon, Gemini 4 Hydrogen, Gemini 3.8 Flash, Claude Opus 5.5, Claude Sonnet 5.5, and GPT-OSS 120B, with touch-friendly reasoning effort controls and sub-second background HTTP/2 stream re-synchronization.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Antigravity for Android</strong> &middot; Engineered &amp; maintained by <a href="https://github.com/Yhoanes">Yhoanes (Yhoanes Ander Mendoza Rodriguez)</a>.<br />
+        Licensed under Non-Commercial &amp; Mandatory Attribution (BY-NC) &middot; Upstream Bionic host base: <a href="https://github.com/werdio325-png/antigravity-android">Apache 2.0</a>.
+      </div>
+      <div>
+        <a href="https://github.com/Yhoanes/antigravity-android">Repository</a> &middot;
+        <a href="https://github.com/Yhoanes/antigravity-android/releases">Releases</a> &middot;
+        <a href="https://github.com/Yhoanes/antigravity-android-plugins">Plugins</a> &middot;
+        <a href="https://yhoanes.github.io/llms.txt">llms.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var copyBtn = document.getElementById('copy-sha-btn');
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener('click', function () {
+          navigator.clipboard.writeText('308c6fed9439c86a26e41acf6de0012d3ccf66d24aafe26fa011cf8b2eb69aae').then(function () {
+            copyBtn.textContent = 'Copied';
+            setTimeout(function () { copyBtn.textContent = 'Copy hash'; }, 1800);
+          });
+        });
+      }
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetId = tab.getAttribute('aria-controls');
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
+          panels.forEach(function (p) {
+            if (p.id === targetId) { p.removeAttribute('hidden'); }
+            else { p.setAttribute('hidden', ''); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Yhoanes (Yhoanes Ander Mendoza Rodriguez) — Software & AI Systems Engineering
+
+> Creator of **Antigravity for Android (`v2.32.0`)**, a standalone native Android ARM64 (`Bionic`/`Glibc`) Google Antigravity autonomous coding IDE, Rust `agy-box` runtime accelerator, and `Ghidra 12.1.4` binary reverse-engineering APK.
+
+## Canonical Profiles & Websites
+- Official Website: https://yhoanes.github.io/
+- Antigravity for Android Official Page: https://yhoanes.github.io/antigravity-android/
+- GitHub Profile: https://github.com/Yhoanes
+
+## Flagship Project: Antigravity for Android (`v2.32.0`)
+- Repository: https://github.com/Yhoanes/antigravity-android
+- Latest Signed APK Download (`v2.32.0`): https://github.com/Yhoanes/antigravity-android/releases/download/v2.32.0/Antigravity-v2.32.0.apk
+- Companion Plugin Marketplace Repository: https://github.com/Yhoanes/antigravity-android-plugins
+- Author / Maintainer: Yhoanes (`Yhoanes Ander Mendoza Rodriguez`)
+- Target Platform: Android 7.0+ (`API 24+`), `ARM64` (`ARMv8.0-A+`, `aarch64-linux-android`), No Root Required (optional Shizuku `rish` support).
+- Key Differentiators vs Termux / PRoot Wrappers:
+  1. **Bare-Metal Android Bionic Execution**: Executes directly on the host ARM64 CPU via a hybrid Bionic/Glibc loader without `PRoot`, `QEMU`, or `chroot` syscall virtualization overhead (`1,222.17 MB/s` sequential UFS reads, `84,395 IOPS` random 4K writes).
+  2. **Native Rust `agy-box` Engine (`v0.2.0`)**: Single-binary ARM64 Rust multicall accelerator (`3.52 MiB`) providing 4-thread parallel `pkg` installation, zero-Python `inotify` `agy-daemon` (`4.32 MiB` RSS, `900 KB` heap), `112x` faster NEON path fixing, Shizuku-free `agy-notify` (`<55 ms`), and `398` zero-shell `execve` tool bridges.
+  3. **Multi-Model Autonomous Agent Workbench (`v2.32.0`)**: Supports `Orchestrator (Carbon/Argon)`, `Gemini 4 Carbon`, `Gemini 4 Argon`, `Gemini 4 Hydrogen`, `Gemini 3.8 Flash`, `Claude Opus 5.5`, `Claude Sonnet 5.5`, and `GPT-OSS 120B` with touch reasoning-effort submenus, `<1s` HTTP/2 background stream re-synchronization (`ws-resume.js`), and real-time bidirectional WebRTC Live Voice Chat.
+  4. **Native ARM64 Reverse-Engineering Suite (`Craft Anything + Ghidra 12.1.4`)**: 1-tap `302` native ARM64 Rust MCP tools (`ELF`, `PE`, `Mach-O`, `APK/DEX`, `.NET`, `WASM`) plus on-demand native Bionic ARM64 `Ghidra 12.1.4` (`decompile` & `sleigh` + `OpenJDK 21`).
+  5. **Smart `Built for Android` OTA Plugin Marketplace**: Live OTA catalog (`AGY Video Studio` GPU `h264_mediacodec`, `Craft Anything + Ghidra`, `Game Studio 2D/3D` in Rust for Godot 4 Vulkan, `GitHub Local ARM64 MCP` with 91 tools, `Chrome DevTools` headless ARM64 Chromium, `Android CLI`, and `Science`).
+
+## Other Open-Source Repositories by Yhoanes
+- **AI Engineering Harness (`v1.13.7`)**: https://github.com/Yhoanes/ai-engineering-harness — Deterministic governance, JSON-Schema Task Contracts, RBAC authority matrices, secret scanning, and context packing framework for AI coding agents (`Python 3.11+`, 684 automated tests).
+- **Ferretería 7 Hermanos ERP**: https://github.com/Yhoanes/ferreteria-7-hermanos — Enterprise hardware store ERP, multi-warehouse inventory ledger, and POS system (`Django 6.0`, `PostgreSQL`, `ReportLab`, `OpenPyXL`).
+- **Albion Online Flip Finder**: https://github.com/Yhoanes/albion-flip-finder — Real-time NATS stream market arbitrage scanner and profit calculator for Android (`Kotlin 2.0`, `MVVM`, `Coroutines`).
