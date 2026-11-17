@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="DgvjRDzGBHEDhDBqfUjo9qhoZBdBrGkTyBmM5uWyEOc" />
+  <title>Codex for Android (APK) — Official OpenAI Codex UI &amp; Native ARM64 IDE by Yhoanes</title>
+  <meta name="description" content="Download Codex for Android by Yhoanes: standalone OpenAI Codex (v26.51111 + CLI 0.169.0) agentic IDE &amp; native ARM64 Android APK with GPT-6 Astra/Sol Code Mode, O(1) webview-bundle.pak (&lt;2 ms), HMAC loopback security, and 1-tap ARM64 MCP Marketplace." />
+  <meta name="author" content="Yhoanes Ander Mendoza Rodriguez (Yhoanes)" />
+  <meta name="keywords" content="Codex for Android, OpenAI Codex APK, Codex Android ARM64, Yhoanes, GPT-6 Codex mobile, codex-code-mode-host ARM64, ce-box Rust, Craft Anything MCP" />
+  <link rel="canonical" href="https://yhoanes.github.io/codex-android/" />
+  <link rel="alternate" type="text/plain" title="LLM Documentation" href="https://yhoanes.github.io/llms.txt" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Codex for Android — Yhoanes" />
+  <meta property="og:title" content="Codex for Android — Official OpenAI Codex UI &amp; Static ARM64 Engine APK" />
+  <meta property="og:description" content="Standalone OpenAI Codex IDE &amp; native ARM64 Android APK by Yhoanes. Static codex.elf + Code Mode (~30 ms MCP), O(1) webview-bundle.pak, GPT-6 Astra/Sol &amp; 1-tap ARM64 MCP Marketplace." />
+  <meta property="og:url" content="https://yhoanes.github.io/codex-android/" />
+  <meta property="og:image" content="https://yhoanes.github.io/codex-android/assets/hero_session.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Codex for Android (by Yhoanes)" />
+  <meta name="twitter:description" content="Standalone OpenAI Codex IDE &amp; native ARM64 Android APK — GPT-6 Code Mode, O(1) webview-bundle.pak, inline workspace selector &amp; 1-Tap ARM64 MCP Marketplace." />
+  <meta name="twitter:image" content="https://yhoanes.github.io/codex-android/assets/hero_session.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://yhoanes.github.io/#person",
+        "name": "Yhoanes Ander Mendoza Rodriguez",
+        "alternateName": "Yhoanes",
+        "url": "https://yhoanes.github.io/",
+        "sameAs": ["https://github.com/Yhoanes"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://yhoanes.github.io/codex-android/#software",
+        "name": "Codex for Android",
+        "alternateName": [
+          "OpenAI Codex for Android APK",
+          "Codex Native ARM64 Android IDE",
+          "Yhoanes Codex Android"
+        ],
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Android 9.0+ (ARM64 / AArch64)",
+        "url": "https://yhoanes.github.io/codex-android/",
+        "downloadUrl": "https://github.com/Yhoanes/codex-android/releases/latest",
+        "installUrl": "https://github.com/Yhoanes/codex-android/releases/latest",
+        "releaseNotes": "https://github.com/Yhoanes/codex-android/releases",
+        "screenshot": "https://yhoanes.github.io/codex-android/assets/hero_session.jpg",
+        "author": { "@id": "https://yhoanes.github.io/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Standalone OpenAI Codex agentic IDE and native ARM64 Android APK bundling official Codex Extension UI, static ARM64 codex.elf + codex-code-mode-host, O(1) webview-bundle.pak, Bionic ce-box userspace, and 1-tap ARM64 MCP Marketplace."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://yhoanes.github.io/codex-android/#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does Codex for Android serve 15,350 webview modules without mobile storage lag?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Codex for Android packs all 15,350 webview modules into a single O(1) byte-indexed archive (webview-bundle.pak), eliminating 15k-inode extraction overhead on mobile UFS flash and serving assets in under 2 milliseconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does GPT-6 Code Mode work with native ARM64 MCP servers on Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Both static aarch64 binaries (codex.elf and codex-code-mode-host) are bundled natively so GPT-6 Code Mode executes JavaScript tool cells over grpc+stdio:// against ARM64 Rust MCP servers in ~30 ms without container conflicts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which sign-in methods and models are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sign in via ChatGPT Subscription OAuth, GitHub Copilot OAuth, or OpenAI API Key, with full access to GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra, GPT-6 Sol, GPT-6 Luna, and GPT-5.6 reasoning levels."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="https://yhoanes.github.io/codex-android/">
+        <img src="assets/logo.png" alt="Codex for Android icon" width="32" height="32" />
+        <span>Codex for Android</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#comparison">Architecture</a>
+        <a href="#walkthrough">Interface</a>
+        <a href="#plugins">MCP Servers</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://yhoanes.github.io/">All 5 IDEs</a>
+        <a href="https://github.com/Yhoanes/codex-android">GitHub</a>
+      </nav>
+    </div>
+    <div class="suite-bar">
+      <div class="container suite-bar-inner" aria-label="Android ARM64 IDE Suite">
+        <span class="suite-label">ARM64 Suite:</span>
+        <a class="suite-pill" href="../">Overview</a>
+        <a class="suite-pill" href="../antigravity-android/">
+          <img src="../antigravity-android/assets/logo.png" alt="" width="18" height="18" />
+          Antigravity
+        </a>
+        <a class="suite-pill" href="../opencode-android/">
+          <img src="../opencode-android/assets/logo.png" alt="" width="18" height="18" />
+          OpenCode
+        </a>
+        <a class="suite-pill" href="../claude-android/">
+          <img src="../claude-android/assets/logo.png" alt="" width="18" height="18" />
+          Claude Code
+        </a>
+        <a class="suite-pill" href="../codex-android/" aria-current="page">
+          <img src="../codex-android/assets/logo.png" alt="" width="18" height="18" />
+          Codex
+        </a>
+        <a class="suite-pill" href="../deepseek-android/">
+          <img src="../deepseek-android/assets/logo.png" alt="" width="18" height="18" />
+          DeepSeek
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="version-pill">
+            <span class="version-dot" aria-hidden="true"></span>
+            <span id="live-release-badge">Latest Release &middot; OpenAI Codex ARM64 &middot; Engineered by Yhoanes</span>
+          </div>
+          <h1>Codex for Android</h1>
+          <p class="hero-lead">
+            Standalone <strong>OpenAI Codex (<code>v26.51111</code> + CLI <code>0.169.0</code>)</strong> agentic IDE and native <strong>ARM64 Android</strong> APK (<code>com.ce.ide</code>). Pairs static ARM64 <code>codex.elf</code> + <code>codex-code-mode-host</code> with an <code>O(1) webview-bundle.pak</code> archive, inline mobile workspace switcher, <code>ce-box</code> Bionic userspace, and live hot-reloading ARM64 MCP servers.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" id="download-apk-btn" href="https://github.com/Yhoanes/codex-android/releases/latest">
+              Download Latest APK
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Yhoanes/codex-android">
+              View Source on GitHub
+            </a>
+          </div>
+          <div class="checksum-box" id="checksum-box" hidden aria-label="APK SHA-256 checksum">
+            <code id="apk-sha"></code>
+            <button type="button" class="copy-btn" id="copy-sha-btn">Copy hash</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="device-frame">
+            <div class="device-screen">
+              <img src="assets/hero_session.jpg" alt="Codex for Android GPT-6 Astra session using Craft Anything 335 ARM64 tools" width="1800" height="2880" />
+            </div>
+            <p class="device-caption">
+              Live GPT-6 Astra session on Android ARM64 invoking Craft Anything's 335 Rust binary tools via Code Mode.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Comparison -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <h2>Static ARM64 Code Mode &amp; O(1) bundle architecture</h2>
+        <p class="section-intro">
+          Executes directly via Linux kernel <code>execve()</code> inside a 10-byte prefix-aligned Bionic userspace (<code>/data/user/0/com.ce.ide/files/usr</code>) with zero PRoot, zero Electron, and zero 15k-file extraction delays.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Subsystem</th>
+                <th>Codex for Android (by Yhoanes)</th>
+                <th>Desktop Electron / PRoot Ports</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Asset delivery</strong></td>
+                <td class="highlight-col"><code>O(1)</code> byte-indexed <code>webview-bundle.pak</code> serving all 15,350 modules in <code>&lt; 2 ms</code></td>
+                <td>Slow 15,000+ inode extraction on mobile flash filesystems</td>
+              </tr>
+              <tr>
+                <td><strong>GPT-6 Code Mode</strong></td>
+                <td class="highlight-col">Static ARM64 <code>codex.elf</code> + <code>codex-code-mode-host</code> invoking MCP over <code>grpc+stdio://</code> in <code>~30 ms</code></td>
+                <td>Fails on unrooted Android namespace/socket sandboxes</td>
+              </tr>
+              <tr>
+                <td><strong>Mobile workspace UX</strong></td>
+                <td class="highlight-col">Inline composer bar pill (<code>+ ! Full access | workspace</code>) with SAF directory picker &amp; keyboard tracking</td>
+                <td>Desktop window dialogs hidden off-screen on mobile viewports</td>
+              </tr>
+              <tr>
+                <td><strong>Loopback security</strong></td>
+                <td class="highlight-col">256-bit <code>CE_AUTH_TOKEN</code> + <code>HMAC-SHA256</code> health nonce + strict <code>403</code> secret confinement</td>
+                <td>Unauthenticated localhost sockets</td>
+              </tr>
+              <tr>
+                <td><strong>MCP hot-reload</strong></td>
+                <td class="highlight-col">1-tap install in <em>Codex Settings &rarr; MCP Servers</em> + live <code>config/mcpServer/reload</code></td>
+                <td>Manual TOML editing and process restarts</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Engineering Pillars -->
+    <section class="section">
+      <div class="container">
+        <h2>Core engineering pillars</h2>
+        <p class="section-intro">
+          Compiles in ~40 seconds via a self-contained 11-phase Gradle-free build pipeline directly on Android ARM64 or Linux.
+        </p>
+
+        <div class="spec-grid">
+          <div class="spec-block">
+            <h3>Official OpenAI Codex UI &amp; GPT-6 lineup</h3>
+            <p>Sign in with ChatGPT Subscription, GitHub Copilot, or API Key and switch across <strong>GPT-6.1 Sol</strong>, <strong>GPT-6 Astra</strong>, <strong>GPT-6.1 Terra</strong>, <strong>GPT-6 Sol</strong>, <strong>GPT-6 Luna</strong>, and <strong>GPT-5.6</strong> with diff viewer and multi-thread history.</p>
+          </div>
+          <div class="spec-block">
+            <h3><code>~30 ms</code> Code Mode MCP orchestration</h3>
+            <p>Bundles static <code>aarch64-unknown-linux-musl</code> engines so GPT-6 executes JavaScript orchestration cells directly against compiled ARM64 Rust MCP servers.</p>
+          </div>
+          <div class="spec-block">
+            <h3>10-byte Bionic userspace (<code>ce-box</code>)</h3>
+            <p>Exact prefix parity (<code>com.ce.ide</code> == <code>com.termux</code>) powers native <code>pkg</code> installation and direct kernel execution of <code>clang</code>, <code>rust</code>, <code>python</code>, <code>nodejs</code>, <code>git</code>, and <code>ghidra</code>.</p>
+          </div>
+          <div class="spec-block">
+            <h3>RSA-4096 verified GitHub Releases OTA</h3>
+            <p><code>AppUpdateManager</code> checks <code>Yhoanes/codex-android</code> Releases, verifies the production RSA-4096 SHA-256 signing certificate, and upgrades seamlessly via Shizuku or Android <code>PackageInstaller</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Real Device Walkthrough -->
+    <section class="section" id="walkthrough">
+      <div class="container">
+        <h2>Real device walkthrough</h2>
+        <p class="section-intro">
+          Captured directly on Android ARM64 hardware running <code>com.ce.ide</code> on loopback port <code>45197</code>.
+        </p>
+
+        <div class="walkthrough-layout">
+          <div class="tab-list" role="tablist" aria-label="Codex interface captures">
+            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="ce-panel-hero" id="ce-tab-hero" type="button">
+              <strong>GPT-6 Astra + Craft Anything</strong>
+              <span>Live ARM64 agent session invoking 335 Rust reverse-engineering tools</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ce-panel-mod" id="ce-tab-mod" type="button">
+              <strong>GPT-6 Selector &amp; Inline Workspace</strong>
+              <span>GPT-6.1 / GPT-6 Astra selector and inline mobile SAF folder switcher</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ce-panel-plug" id="ce-tab-plug" type="button">
+              <strong>1-Tap MCP Servers Marketplace</strong>
+              <span>Install &amp; hot-reload native ARM64 Rust MCP toolchains in Codex Settings</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ce-panel-login" id="ce-tab-login" type="button">
+              <strong>Official Codex Sign-In</strong>
+              <span>ChatGPT Subscription OAuth, GitHub Copilot OAuth, and OpenAI API Key</span>
+            </button>
+          </div>
+
+          <div>
+            <div class="device-frame tab-panel" id="ce-panel-hero" role="tabpanel" aria-labelledby="ce-tab-hero">
+              <div class="device-screen">
+                <img src="assets/hero_session.jpg" alt="Live GPT-6 Astra session in Codex for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">GPT-6 Astra executing native ARM64 Code Mode MCP calls directly against local Android storage.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ce-panel-mod" role="tabpanel" aria-labelledby="ce-tab-mod" hidden>
+              <div class="device-screen">
+                <img src="assets/models_and_workspace.jpg" alt="GPT-6 model selector and inline mobile workspace bar in Codex for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">GPT-6 model selector and inline composer workspace pill with Android SAF integration.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ce-panel-plug" role="tabpanel" aria-labelledby="ce-tab-plug" hidden>
+              <div class="device-screen">
+                <img src="assets/plugins_marketplace.jpg" alt="1-Tap native ARM64 MCP Servers Marketplace in Codex Settings" loading="lazy" />
+              </div>
+              <p class="device-caption">1-tap native ARM64 MCP Servers catalog inside Codex Settings with instant session reload.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ce-panel-login" role="tabpanel" aria-labelledby="ce-tab-login" hidden>
+              <div class="device-screen">
+                <img src="assets/login_screen.jpg" alt="Official OpenAI Codex welcome and sign-in screen on Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Clean official OpenAI Codex onboarding supporting ChatGPT, GitHub Copilot, and API keys.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Native ARM64 Plugins Table -->
+    <section class="section" id="plugins">
+      <div class="container">
+        <h2>1-tap ARM64 MCP servers catalog</h2>
+        <p class="section-intro">
+          Configured automatically into <code>~/.codex/config.toml</code> with live <code>config/mcpServer/reload</code> hot-reloading.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>MCP Server</th>
+                <th>Version</th>
+                <th>Capabilities on Android ARM64</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Craft Anything + Ghidra</strong></td>
+                <td><code>v0.5.0</code></td>
+                <td>335 native Rust MCP tools (<code>&lt; 50 MB</code> RAM) for ELF/PE/Mach-O, APK/DEX, .NET/NativeAOT, WASM, ESP32/UF2, Godot <code>.pck</code>, Unity IL2CPP &amp; Wii <code>.dol</code> + native ARM64 <strong>Ghidra 12.1.4</strong></td>
+              </tr>
+              <tr>
+                <td><strong>ADB &amp; Shizuku Bridge</strong></td>
+                <td><code>v1.0.1</code></td>
+                <td>Standalone native Rust wireless ADB 6-digit pairing (<code>127.0.0.1:5555</code> offline TCP — no PC required), zero-polling mDNS &amp; 2s MIUI-safe Shizuku fallback</td>
+              </tr>
+              <tr>
+                <td><strong>GitHub Native ARM64</strong></td>
+                <td><code>v2.1.1</code></td>
+                <td>91 native ARM64 GitHub tools (repos, PRs, code reviews, Issues, Actions CI/CD logs, security alerts) + Bionic Git/GH OAuth setup</td>
+              </tr>
+              <tr>
+                <td><strong>Game Studio 2D/3D &amp; Unity Studio</strong></td>
+                <td><code>v2.0 / v1.0</code></td>
+                <td>Godot 4 Vulkan + ARM64 C++/Rust <code>GDExtension</code> + local offline <code>.apk</code> builder, plus Unity 6.3 LTS URP + ported official <code>unity-cli v1.0.0</code></td>
+              </tr>
+              <tr>
+                <td><strong>Video Studio Pro &amp; AI Video Gen</strong></td>
+                <td><code>v4.0 / v1.0</code></td>
+                <td>60 FPS <code>h264_mediacodec</code> GPU editor + rootless CapCut timeline export + native Rust Text/Image-to-Video &amp; Lip-Sync diffusion engine</td>
+              </tr>
+              <tr>
+                <td><strong>Chrome DevTools &amp; Android SDK</strong></td>
+                <td><code>v1.10.4+</code></td>
+                <td>Headless native ARM64 Chromium CDP automation + official Android architecture, Jetpack Compose &amp; on-device <code>logcat</code>/<code>dumpsys</code> skills</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Does Codex for Android require Root, Termux, or PRoot?</summary>
+            <p>No. Codex for Android runs directly on Android ARM64 inside its own standalone sandbox (<code>com.ce.ide</code>) using static ARM64 binaries and a 10-byte prefix-aligned Bionic userspace with zero PRoot overhead.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Why does Codex launch instantaneously despite having 15,350 webview files?</summary>
+            <p>All 15,350 webview modules are packed into a single byte-indexed archive (<code>webview-bundle.pak</code>), avoiding tens of thousands of filesystem metadata syscalls on mobile UFS flash and serving assets in under 2 ms.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I install side-by-side Release and Dev builds?</summary>
+            <p>Yes. <code>./build.sh</code> produces <code>com.ce.ide</code> (port <code>45197</code>), while <code>./build.sh --dev</code> produces an isolated side-by-side <code>com.ce.dev</code> APK (port <code>45198</code>).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Codex for Android</strong> &middot; Created &amp; engineered by <a href="https://github.com/Yhoanes">Yhoanes (Yhoanes Ander Mendoza Rodriguez)</a>.<br />
+        Licensed under Non-Commercial &amp; Mandatory Attribution (BY-NC).
+      </div>
+      <div class="footer-links">
+        <a href="../">All 5 IDEs</a> &middot;
+        <a href="https://github.com/Yhoanes/codex-android">Repository</a> &middot;
+        <a href="https://github.com/Yhoanes/codex-android/releases">Releases</a> &middot;
+        <a href="https://yhoanes.github.io/llms.txt">llms.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var currentSha = '';
+      var dlBtn = document.getElementById('download-apk-btn');
+      var shaBox = document.getElementById('checksum-box');
+      var shaCode = document.getElementById('apk-sha');
+      var copyBtn = document.getElementById('copy-sha-btn');
+      var badge = document.getElementById('live-release-badge');
+
+      fetch('https://api.github.com/repos/Yhoanes/codex-android/releases/latest')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (release) {
+          if (!release) return;
+          if (badge && release.tag_name) {
+            badge.textContent = 'Latest Release (' + release.tag_name + ') \u00b7 OpenAI Codex ARM64 \u00b7 Engineered by Yhoanes';
+          }
+          var assets = Array.isArray(release.assets) ? release.assets : [];
+          var apk = null;
+          for (var i = 0; i < assets.length; i++) {
+            if (assets[i].name && /\.apk$/i.test(assets[i].name)) { apk = assets[i]; break; }
+          }
+          if (apk && apk.browser_download_url && dlBtn) { dlBtn.href = apk.browser_download_url; }
+          if (apk && apk.digest && shaBox && shaCode) {
+            currentSha = String(apk.digest).replace(/^sha256:/i, '');
+            shaCode.textContent = 'SHA-256: ' + currentSha;
+            shaBox.removeAttribute('hidden');
+          }
+        })
+        .catch(function () {});
+
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener('click', function () {
+          if (!currentSha) return;
+          navigator.clipboard.writeText(currentSha).then(function () {
+            copyBtn.textContent = 'Copied';
+            setTimeout(function () { copyBtn.textContent = 'Copy hash'; }, 1800);
+          });
+        });
+      }
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetId = tab.getAttribute('aria-controls');
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
+          panels.forEach(function (p) {
+            if (p.id === targetId) { p.removeAttribute('hidden'); }
+            else { p.setAttribute('hidden', ''); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

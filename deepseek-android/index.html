@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="DgvjRDzGBHEDhDBqfUjo9qhoZBdBrGkTyBmM5uWyEOc" />
+  <title>DeepSeek for Android (APK) — Native DeepSeek Harness Desktop IDE on ARM64 by Yhoanes</title>
+  <meta name="description" content="Download DeepSeek for Android by Yhoanes: standalone DeepSeek Harness Desktop (@deepseek-ai/dsh) autonomous coding IDE &amp; native ARM64 Android APK with ~2.5s Rust Zstandard JNI bootstrap (libds_bootstrap.so), ds-box v0.3.1, PKCE OAuth, offline SenseVoice STT, and Cordis HMR MCP Plugins." />
+  <meta name="author" content="Yhoanes Ander Mendoza Rodriguez (Yhoanes)" />
+  <meta name="keywords" content="DeepSeek for Android, DeepSeek Desktop Android APK, DeepSeek Harness Desktop ARM64, @deepseek-ai/dsh Android, Yhoanes, ds-box Rust, libds_bootstrap, Craft Anything MCP" />
+  <link rel="canonical" href="https://yhoanes.github.io/deepseek-android/" />
+  <link rel="alternate" type="text/plain" title="LLM Documentation" href="https://yhoanes.github.io/llms.txt" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DeepSeek for Android — Yhoanes" />
+  <meta property="og:title" content="DeepSeek for Android — Standalone DeepSeek Harness Desktop IDE &amp; ARM64 APK" />
+  <meta property="og:description" content="Authentic DeepSeek Harness Desktop (@deepseek-ai/dsh) running natively on Android ARM64 by Yhoanes. ~2.5s Rust Zstd JNI bootstrap, Cordis HMR plugins, offline SenseVoice STT &amp; zero PRoot." />
+  <meta property="og:url" content="https://yhoanes.github.io/deepseek-android/" />
+  <meta property="og:image" content="https://yhoanes.github.io/deepseek-android/assets/hero_workspace.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DeepSeek for Android (by Yhoanes)" />
+  <meta name="twitter:description" content="Standalone DeepSeek Harness Desktop (@deepseek-ai/dsh) autonomous IDE &amp; native ARM64 Android APK — ~2.5s Rust Zstd bootstrap, ds-box &amp; 1-Tap ARM64 MCP Plugins." />
+  <meta name="twitter:image" content="https://yhoanes.github.io/deepseek-android/assets/hero_workspace.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://yhoanes.github.io/#person",
+        "name": "Yhoanes Ander Mendoza Rodriguez",
+        "alternateName": "Yhoanes",
+        "url": "https://yhoanes.github.io/",
+        "sameAs": ["https://github.com/Yhoanes"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://yhoanes.github.io/deepseek-android/#software",
+        "name": "DeepSeek for Android",
+        "alternateName": [
+          "DeepSeek Harness Desktop for Android APK",
+          "DeepSeek Desktop Android Native IDE",
+          "Yhoanes DeepSeek Android"
+        ],
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Android 9.0+ (ARM64 / AArch64)",
+        "url": "https://yhoanes.github.io/deepseek-android/",
+        "downloadUrl": "https://github.com/Yhoanes/deepseek-android/releases/latest",
+        "installUrl": "https://github.com/Yhoanes/deepseek-android/releases/latest",
+        "releaseNotes": "https://github.com/Yhoanes/deepseek-android/releases",
+        "screenshot": "https://yhoanes.github.io/deepseek-android/assets/hero_workspace.jpg",
+        "author": { "@id": "https://yhoanes.github.io/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Standalone DeepSeek Harness Desktop (@deepseek-ai/dsh) autonomous coding IDE and native ARM64 Android APK with ~2.5s Rust + Zstandard mmap JNI bootstrap (libds_bootstrap.so), ds-box v0.3.1 Bionic userspace, PKCE OAuth, offline SenseVoice speech, and Cordis HMR ARM64 MCP plugins."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://yhoanes.github.io/deepseek-android/#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does DeepSeek for Android extract its full ARM64 desktop runtime in ~2.5 seconds?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DeepSeek for Android uses a custom Native Rust + Zstandard JNI bootstrap engine (libds_bootstrap.so) that memory-maps (mmap + MADV_SEQUENTIAL) ZIP_STORED .tar.zst archives directly from the APK, verifies SHA-256 in RAM, streams Zstandard decompression, and performs in-place 31-byte ELF prefix fixups in ~2.5s (<1 ms on subsequent launches)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does DeepSeek for Android require Root, Termux, or an external cloud relay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The authentic @deepseek-ai/dsh server and Cordis plugin runtime execute locally on 127.0.0.1:45187 inside com.ds.ide on unrooted Android 9.0+ devices with zero PRoot and zero cloud relay."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need the external Shizuku app for elevated ADB commands?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Installing the AGY ADB Bridge plugin directly inside DeepSeek (Plugins -> Android Native Plugins) lets you pair once via Android's 6-digit Wireless Debugging code for persistent 127.0.0.1:5555 uid=2000(shell) access, while external Shizuku is also supported automatically."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="https://yhoanes.github.io/deepseek-android/">
+        <img src="assets/logo.png" alt="DeepSeek for Android icon" width="32" height="32" />
+        <span>DeepSeek for Android</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#comparison">Architecture</a>
+        <a href="#walkthrough">Interface</a>
+        <a href="#plugins">Cordis &amp; MCP</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://yhoanes.github.io/">All 5 IDEs</a>
+        <a href="https://github.com/Yhoanes/deepseek-android">GitHub</a>
+      </nav>
+    </div>
+    <div class="suite-bar">
+      <div class="container suite-bar-inner" aria-label="Android ARM64 IDE Suite">
+        <span class="suite-label">ARM64 Suite:</span>
+        <a class="suite-pill" href="../">Overview</a>
+        <a class="suite-pill" href="../antigravity-android/">
+          <img src="../antigravity-android/assets/logo.png" alt="" width="18" height="18" />
+          Antigravity
+        </a>
+        <a class="suite-pill" href="../opencode-android/">
+          <img src="../opencode-android/assets/logo.png" alt="" width="18" height="18" />
+          OpenCode
+        </a>
+        <a class="suite-pill" href="../claude-android/">
+          <img src="../claude-android/assets/logo.png" alt="" width="18" height="18" />
+          Claude Code
+        </a>
+        <a class="suite-pill" href="../codex-android/">
+          <img src="../codex-android/assets/logo.png" alt="" width="18" height="18" />
+          Codex
+        </a>
+        <a class="suite-pill" href="../deepseek-android/" aria-current="page">
+          <img src="../deepseek-android/assets/logo.png" alt="" width="18" height="18" />
+          DeepSeek
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="version-pill">
+            <span class="version-dot" aria-hidden="true"></span>
+            <span id="live-release-badge">Latest Release &middot; DeepSeek Harness Desktop ARM64 &middot; Engineered by Yhoanes</span>
+          </div>
+          <h1>DeepSeek for Android</h1>
+          <p class="hero-lead">
+            Standalone <strong>DeepSeek Harness Desktop (<code>@deepseek-ai/dsh</code>)</strong> autonomous coding IDE and native <strong>ARM64 Android</strong> APK (<code>com.ds.ide</code>). Combines a <code>~2.5s</code> Rust + Zstandard <code>mmap</code> JNI bootstrap engine (<code>libds_bootstrap.so</code>), Node <code>v24.22.3 LTS</code>, <code>ds-box v0.3.1</code>, PKCE OAuth, offline SenseVoice speech input, and zero-restart Cordis HMR MCP plugins.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" id="download-apk-btn" href="https://github.com/Yhoanes/deepseek-android/releases/latest">
+              Download Latest APK
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Yhoanes/deepseek-android">
+              View Source on GitHub
+            </a>
+          </div>
+          <div class="checksum-box" id="checksum-box" hidden aria-label="APK SHA-256 checksum">
+            <code id="apk-sha"></code>
+            <button type="button" class="copy-btn" id="copy-sha-btn">Copy hash</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="device-frame">
+            <div class="device-screen">
+              <img src="assets/hero_workspace.jpg" alt="DeepSeek Harness Desktop running natively on Android ARM64" width="1800" height="2880" />
+            </div>
+            <p class="device-caption">
+              Desktop-identical DeepSeek Harness Desktop workspace running locally on 127.0.0.1:45187 inside Android ARM64.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Comparison -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <h2>Native Rust Zstandard bootstrap &amp; desktop parity</h2>
+        <p class="section-intro">
+          Executes the authentic <code>@deepseek-ai/dsh-web-app</code> and Cordis plugin runtime locally on mobile silicon via Linux kernel <code>execve()</code> with 10-byte Bionic prefix alignment (<code>com.ds.ide</code> == <code>com.termux</code>).
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Subsystem</th>
+                <th>DeepSeek for Android (by Yhoanes)</th>
+                <th>PRoot / Remote Desktop Setups</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cold install bootstrap</strong></td>
+                <td class="highlight-col">Native Rust JNI <code>libds_bootstrap.so</code>: <code>mmap</code> <code>ZIP_STORED</code> <code>.tar.zst</code> + SHA-256 + 31-byte ELF fixups in <strong>~2.5s</strong> (<code>&lt; 1 ms</code> daily boot)</td>
+                <td>30–90s shell tar extraction + slow userspace <code>ptrace</code></td>
+              </tr>
+              <tr>
+                <td><strong>Desktop feature parity</strong></td>
+                <td class="highlight-col">Multi-session threads, Standard &amp; Creator (<code>cordis</code>) modes, subagents, Goal Mode, background jobs, diffs, PTY &amp; Office/PDF skills</td>
+                <td>Web chat only — no local filesystem, git worktrees, or PTY</td>
+              </tr>
+              <tr>
+                <td><strong>Voice &amp; OAuth</strong></td>
+                <td class="highlight-col">1-click DeepSeek Account PKCE OAuth (<code>deepseek://oauth-success</code>) + offline <code>sherpa-onnx</code> <strong>SenseVoice</strong> STT</td>
+                <td>Manual API key setup; no offline speech engine</td>
+              </tr>
+              <tr>
+                <td><strong>Host security &amp; IPC</strong></td>
+                <td class="highlight-col">256-bit constant-time <code>bridgeAuthToken</code>, randomized bindings, <code>0%</code> idle CPU <code>inotify</code> queues &amp; 2.5s MIUI-safe <code>rish</code> watchdog</td>
+                <td>Polling loops draining mobile battery</td>
+              </tr>
+              <tr>
+                <td><strong>Plugin hot-mounting</strong></td>
+                <td class="highlight-col">1-tap ARM64 Rust MCP servers hot-mounted into <code>~/.dsh/cordis.patch.yml</code> via <code>dsh-hmr</code> with zero restart</td>
+                <td>Unsupported on mobile</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Engineering Pillars -->
+    <section class="section">
+      <div class="container">
+        <h2>Core engineering pillars</h2>
+        <p class="section-intro">
+          Built with a 12-phase Gradle-free deterministic pipeline (<code>clang</code>, <code>rustc</code>, <code>zstd</code>, <code>aapt</code>, <code>javac</code>, <code>d8</code>, <code>apksigner</code>) in a compact ~99 MB signed APK.
+        </p>
+
+        <div class="spec-grid">
+          <div class="spec-block">
+            <h3><code>libds_bootstrap.so</code> Rust JNI engine</h3>
+            <p>Streams Zstandard decompression directly from memory-mapped APK offsets while rewriting 31-byte ELF interpreter/RPATH and shebang prefixes in RAM on first install.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Pure-Bionic Rust <code>ds-box v0.3.1</code></h3>
+            <p>Provides 4-thread parallel <code>pkg</code> (<code>apt</code>), autonomous <code>ds-daemon</code> background job scheduler, SIMD <code>ds-fix-paths</code>, and native Android <code>ds-notify</code> status alerts.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Standard &amp; Creator (<code>cordis</code>) presets</h3>
+            <p>Full access to DeepSeek Desktop's agent loops, auto-review mode, Git worktrees, custom OpenAI/Anthropic-compatible providers, and dynamic Light/Dark Android status-bar sync.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Zero-restart Cordis HMR &amp; GitHub OTA</h3>
+            <p>Toggle native ARM64 MCP servers live inside <em>Plugins (Complementos)</em> and receive RSA-4096 verified in-place APK upgrades from GitHub Releases without losing sessions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Real Device Walkthrough -->
+    <section class="section" id="walkthrough">
+      <div class="container">
+        <h2>Real device walkthrough</h2>
+        <p class="section-intro">
+          Captured directly on Android ARM64 hardware running <code>com.ds.ide</code> on loopback port <code>45187</code>.
+        </p>
+
+        <div class="walkthrough-layout">
+          <div class="tab-list" role="tablist" aria-label="DeepSeek interface captures">
+            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="ds-panel-hero" id="ds-tab-hero" type="button">
+              <strong>DeepSeek Desktop Workspace</strong>
+              <span>Multi-session threads, file tree, code diffs &amp; integrated PTY terminal</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ds-panel-plug" id="ds-tab-plug" type="button">
+              <strong>Native ARM64 Plugins &amp; SenseVoice</strong>
+              <span>1-tap Android ARM64 MCP servers, SenseVoice offline STT &amp; Git worktrees</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ds-panel-set" id="ds-tab-set" type="button">
+              <strong>Desktop General Settings</strong>
+              <span>Permissions, Light/Dark dynamic theme sync, coding view &amp; shortcuts</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ds-panel-tools" id="ds-tab-tools" type="button">
+              <strong>Built-in Cordis Tools &amp; Skills</strong>
+              <span>Session tools, web search, shell limits &amp; bundled Office/PDF workflows</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ds-panel-pre" id="ds-tab-pre" type="button">
+              <strong>Standard &amp; Creator Agent Presets</strong>
+              <span>Switch between Standard software engineering and Creator Cordis modes</span>
+            </button>
+          </div>
+
+          <div>
+            <div class="device-frame tab-panel" id="ds-panel-hero" role="tabpanel" aria-labelledby="ds-tab-hero">
+              <div class="device-screen">
+                <img src="assets/hero_workspace.jpg" alt="DeepSeek for Android native desktop workspace" loading="lazy" />
+              </div>
+              <p class="device-caption">Authentic DeepSeek Harness Desktop (@deepseek-ai/dsh) running natively on Android ARM64.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ds-panel-plug" role="tabpanel" aria-labelledby="ds-tab-plug" hidden>
+              <div class="device-screen">
+                <img src="assets/plugins_android_arm64.jpg" alt="Built-in, experimental and native Android ARM64 plugins in DeepSeek" loading="lazy" />
+              </div>
+              <p class="device-caption">1-tap Android Native ARM64 MCP Plugins hub hot-mounted via Cordis HMR.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ds-panel-set" role="tabpanel" aria-labelledby="ds-tab-set" hidden>
+              <div class="device-screen">
+                <img src="assets/settings_general.jpg" alt="General settings and appearance in DeepSeek for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Full desktop settings parity synced with Android system bars and dynamic launcher icons.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ds-panel-tools" role="tabpanel" aria-labelledby="ds-tab-tools" hidden>
+              <div class="device-screen">
+                <img src="assets/builtin_tools.jpg" alt="Built-in Cordis session tools and skills in DeepSeek for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Built-in Cordis session tools, shell boundaries, and document processing skills.</p>
+            </div>
+            <div class="device-frame tab-panel" id="ds-panel-pre" role="tabpanel" aria-labelledby="ds-tab-pre" hidden>
+              <div class="device-screen">
+                <img src="assets/agent_presets.jpg" alt="Standard and Creator Cordis agent presets in DeepSeek for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Standard and Creator (Cordis) autonomous agent presets on mobile and tablet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Native ARM64 Plugins Table -->
+    <section class="section" id="plugins">
+      <div class="container">
+        <h2>1-tap Cordis HMR native ARM64 plugins</h2>
+        <p class="section-intro">
+          Hot-mounted into <code>~/.dsh/cordis.patch.yml</code> via <code>dsh-hmr</code> directly from <em>Plugins &rarr; Android Native Plugins</em> without restarting the server.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Plugin</th>
+                <th>Version</th>
+                <th>Capabilities on Android ARM64</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Craft Anything + Ghidra</strong></td>
+                <td><code>v0.5.0</code></td>
+                <td>335 native Rust MCP tools (<code>&lt; 50 MB</code> RAM) for ELF/PE/Mach-O, APK/DEX, .NET/NativeAOT, WASM, ESP32/UF2, Godot <code>.pck</code>, Unity IL2CPP &amp; Wii <code>.dol</code> + native ARM64 <strong>Ghidra 12.1.4</strong></td>
+              </tr>
+              <tr>
+                <td><strong>AGY Video Gen &amp; Video Studio</strong></td>
+                <td><code>v1.0 / v4.0</code></td>
+                <td>Native Rust AI video generation (Text/Image-to-Video, First-Last Frame, Lip-Sync) + 60 FPS <code>h264_mediacodec</code> GPU studio &amp; <code>-14 LUFS</code> mastering</td>
+              </tr>
+              <tr>
+                <td><strong>Game Studio 2D/3D &amp; Unity Studio</strong></td>
+                <td><code>v2.0 / v1.0</code></td>
+                <td>16 Rust MCP tools + C++/Rust <code>GDExtension</code> + local signed Godot 4 <code>.apk</code> builder, plus 13 Rust tools + ported <code>unity-cli v1.0.0</code> for Unity 6.3 LTS</td>
+              </tr>
+              <tr>
+                <td><strong>AGY ADB Bridge</strong></td>
+                <td><code>v1.0.1</code></td>
+                <td>Standalone Rust wireless ADB 6-digit pairing (<code>127.0.0.1:5555</code> offline TCP mode — immune to MIUI/HyperOS sleep) + 2s Shizuku fallback</td>
+              </tr>
+              <tr>
+                <td><strong>GitHub MCP, Chromium &amp; Science</strong></td>
+                <td><code>v2.1.1+</code></td>
+                <td>91 native ARM64 GitHub tools + headless ARM64 Chromium CDP automation + native ARM64 scientific stack (<code>numpy</code>, <code>scipy</code>, <code>sympy</code>, <code>pandas</code>)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Does DeepSeek for Android require Root, Termux, or PRoot?</summary>
+            <p>No. It runs 100% natively in Android userspace inside its own standalone sandbox (<code>com.ds.ide</code>) with zero Termux dependency and zero <code>PRoot</code> overhead.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need the external Shizuku app for elevated uid=2000(shell) ADB features?</summary>
+            <p>No. Install the <strong>AGY ADB Bridge</strong> plugin directly inside DeepSeek, pair once with Android's 6-digit Wireless Debugging code, and enjoy persistent <code>127.0.0.1:5555</code> shell access even offline. External Shizuku is also supported automatically.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do OTA updates work?</summary>
+            <p>Official releases on GitHub Releases are signed with the dedicated DeepSeek Android production RSA-4096 certificate and install in-place without losing accounts, sessions, installed packages, or workspaces.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>DeepSeek for Android</strong> &middot; Created &amp; engineered by <a href="https://github.com/Yhoanes">Yhoanes (Yhoanes Ander Mendoza Rodriguez)</a>.<br />
+        Licensed under Non-Commercial &amp; Mandatory Attribution (BY-NC).
+      </div>
+      <div class="footer-links">
+        <a href="../">All 5 IDEs</a> &middot;
+        <a href="https://github.com/Yhoanes/deepseek-android">Repository</a> &middot;
+        <a href="https://github.com/Yhoanes/deepseek-android/releases">Releases</a> &middot;
+        <a href="https://yhoanes.github.io/llms.txt">llms.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var currentSha = '';
+      var dlBtn = document.getElementById('download-apk-btn');
+      var shaBox = document.getElementById('checksum-box');
+      var shaCode = document.getElementById('apk-sha');
+      var copyBtn = document.getElementById('copy-sha-btn');
+      var badge = document.getElementById('live-release-badge');
+
+      fetch('https://api.github.com/repos/Yhoanes/deepseek-android/releases/latest')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (release) {
+          if (!release) return;
+          if (badge && release.tag_name) {
+            badge.textContent = 'Latest Release (' + release.tag_name + ') \u00b7 DeepSeek Desktop ARM64 \u00b7 Engineered by Yhoanes';
+          }
+          var assets = Array.isArray(release.assets) ? release.assets : [];
+          var apk = null;
+          for (var i = 0; i < assets.length; i++) {
+            if (assets[i].name && /\.apk$/i.test(assets[i].name)) { apk = assets[i]; break; }
+          }
+          if (apk && apk.browser_download_url && dlBtn) { dlBtn.href = apk.browser_download_url; }
+          if (apk && apk.digest && shaBox && shaCode) {
+            currentSha = String(apk.digest).replace(/^sha256:/i, '');
+            shaCode.textContent = 'SHA-256: ' + currentSha;
+            shaBox.removeAttribute('hidden');
+          }
+        })
+        .catch(function () {});
+
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener('click', function () {
+          if (!currentSha) return;
+          navigator.clipboard.writeText(currentSha).then(function () {
+            copyBtn.textContent = 'Copied';
+            setTimeout(function () { copyBtn.textContent = 'Copy hash'; }, 1800);
+          });
+        });
+      }
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetId = tab.getAttribute('aria-controls');
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
+          panels.forEach(function (p) {
+            if (p.id === targetId) { p.removeAttribute('hidden'); }
+            else { p.setAttribute('hidden', ''); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

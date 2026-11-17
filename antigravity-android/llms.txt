@@ -1,24 +1,51 @@
 # Yhoanes (Yhoanes Ander Mendoza Rodriguez) — Software & AI Systems Engineering
 
-> Creator of **Antigravity for Android**, a standalone native Android ARM64 (`Bionic`/`Glibc`) Google Antigravity autonomous coding IDE, Rust `agy-box` runtime accelerator, and `Ghidra 12.1.4` binary reverse-engineering APK.
+> Creator of the **Native ARM64 Android Agentic IDE Suite**: standalone bare-metal Android `Bionic` autonomous coding IDEs and reverse-engineering APKs for **Google Antigravity**, **OpenCode**, **Anthropic Claude Code**, **OpenAI Codex**, and **DeepSeek Harness Desktop** — engineered with native Rust userspace engines (`agy-box`, `oc-box`, `cc-box`, `ce-box`, `ds-box`), 335-tool Rust MCP binary triage (`Craft Anything`), and native ARM64 `Ghidra 12.1.4` without PRoot, QEMU, or root.
 
-## Canonical Profiles & Websites
-- Official Website: https://yhoanes.github.io/
-- Antigravity for Android Official Page: https://yhoanes.github.io/antigravity-android/
+## Canonical Profiles & Official Documentation Pages
+- Main Engineering Hub: https://yhoanes.github.io/
+- Antigravity for Android: https://yhoanes.github.io/antigravity-android/
+- OpenCode for Android: https://yhoanes.github.io/opencode-android/
+- Claude Code for Android: https://yhoanes.github.io/claude-android/
+- Codex for Android: https://yhoanes.github.io/codex-android/
+- DeepSeek for Android (Harness Desktop): https://yhoanes.github.io/deepseek-android/
 - GitHub Profile: https://github.com/Yhoanes
 
-## Flagship Project: Antigravity for Android
+## Native ARM64 Android Agentic IDE Suite (5 Standalone APKs)
+
+### 1. Antigravity for Android (`com.agy`, port `45157`)
 - Repository: https://github.com/Yhoanes/antigravity-android
-- Latest Signed APK Release (Always Current): https://github.com/Yhoanes/antigravity-android/releases/latest
-- Companion Plugin Marketplace Repository: https://github.com/Yhoanes/antigravity-android-plugins
-- Author / Maintainer: Yhoanes (`Yhoanes Ander Mendoza Rodriguez`)
-- Target Platform: Android 7.0+ (`API 24+`), `ARM64` (`ARMv8.0-A+`, `aarch64-linux-android`), No Root Required (optional Shizuku `rish` support).
-- Key Differentiators vs Termux / PRoot Wrappers:
-  1. **Bare-Metal Android Bionic Execution**: Executes directly on the host ARM64 CPU via a hybrid Bionic/Glibc loader without `PRoot`, `QEMU`, or `chroot` syscall virtualization overhead (`1,222.17 MB/s` sequential UFS reads, `84,395 IOPS` random 4K writes).
-  2. **Native Rust `agy-box` Engine**: Single-binary ARM64 Rust multicall accelerator (`3.52 MiB`) providing 4-thread parallel `pkg` installation, zero-Python `inotify` `agy-daemon` (`4.32 MiB` RSS, `900 KB` heap), `112x` faster NEON path fixing, Shizuku-free `agy-notify` (`<55 ms`), and `398` zero-shell `execve` tool bridges.
-  3. **Multi-Model Autonomous Agent Workbench**: Supports `Orchestrator (Carbon/Argon)`, `Gemini 4 Carbon`, `Gemini 4 Argon`, `Gemini 4 Hydrogen`, `Gemini 3.8 Flash`, `Claude Opus 5.5`, `Claude Sonnet 5.5`, and `GPT-OSS 120B` with touch reasoning-effort submenus, `<1s` HTTP/2 background stream re-synchronization (`ws-resume.js`), and real-time bidirectional WebRTC Live Voice Chat.
-  4. **Native ARM64 Reverse-Engineering Suite (`Craft Anything + Ghidra 12.1.4`)**: 1-tap `302` native ARM64 Rust MCP tools (`ELF`, `PE`, `Mach-O`, `APK/DEX`, `.NET`, `WASM`) plus on-demand native Bionic ARM64 `Ghidra 12.1.4` (`decompile` & `sleigh` + `OpenJDK 21`).
-  5. **Smart `Built for Android` OTA Plugin Marketplace**: Live OTA catalog (`AGY Video Studio` GPU `h264_mediacodec`, `Craft Anything + Ghidra`, `Game Studio 2D/3D` in Rust for Godot 4 Vulkan, `GitHub Local ARM64 MCP` with 91 tools, `Chrome DevTools` headless ARM64 Chromium, `Android CLI`, and `Science`).
+- Latest Signed APK: https://github.com/Yhoanes/antigravity-android/releases/latest
+- Official Page: https://yhoanes.github.io/antigravity-android/
+- Highlights: Standalone Google Antigravity IDE (`v2.32.1`, Android 7.0+ ARM64), binary-patched `liblanguage_server.so` (`seccomp`/`CLONE_NEWUSER` bypass), `liblse_compat.so` ARMv8.0-A atomics emulation, single-binary Rust `agy-box` (`398` direct `execve` symlinks, `1,222.17 MB/s` UFS reads, `84,395 IOPS`), Gemini 4 (Carbon/Argon/Hydrogen) + Claude 5.5 + Orchestrator, bidirectional WebRTC Live Voice, and the fused *Built for Android* OTA Marketplace.
+
+### 2. OpenCode for Android (`com.oc.ide`, port `45167`)
+- Repository: https://github.com/Yhoanes/opencode-android
+- Latest Signed APK: https://github.com/Yhoanes/opencode-android/releases/latest
+- Official Page: https://yhoanes.github.io/opencode-android/
+- Highlights: 100% Pure Android Bionic `OpenCode v2.3.0` (`ELF 64-bit PIE` linked directly against `/system/bin/linker64`, zero Glibc shim, zero PRoot), 10-byte prefix parity (`com.oc.ide` == `com.termux`), `<200 ms` `CookieManager` session pairing, 75+ AI providers, persistent Rust `opencode-pty v8` + `oc-box v0.3.0`, and zero-restart hot-reloading ARM64 MCP extensions inside *Settings -> Extensions -> Plugins*.
+
+### 3. Claude Code for Android (`com.cc.ide`, port `45177`)
+- Repository: https://github.com/Yhoanes/claude-android
+- Latest Signed APK: https://github.com/Yhoanes/claude-android/releases/latest
+- Official Page: https://yhoanes.github.io/claude-android/
+- Highlights: Official Anthropic Claude Code Full-Editor UI (`v2.1.325`) paired with native ARM64 `claude.elf` and Bionic Node Extension Host, Claude.ai Subscription OAuth + hardware-backed `AndroidKeyStore AES-256-GCM` secret vault (`SecretStore`), per-boot 256-bit `CC_HOST_TOKEN`, multi-project Android SAF sidebar, docked `xterm.js` PTY terminal (`cc-box`), on-demand native `AudioRecord` voice dictation, and 1-Tap ARM64 MCP Plugins & `.skill` Hub.
+
+### 4. Codex for Android (`com.ce.ide`, port `45197`)
+- Repository: https://github.com/Yhoanes/codex-android
+- Latest Signed APK: https://github.com/Yhoanes/codex-android/releases/latest
+- Official Page: https://yhoanes.github.io/codex-android/
+- Highlights: Official OpenAI Codex VS Code Extension UI (`v26.51111`) paired with static ARM64 `codex.elf` (`0.169.0`) and `codex-code-mode-host` (`~30 ms` GPT-6 Code Mode `grpc+stdio://` MCP orchestration), `O(1)` byte-indexed `webview-bundle.pak` serving 15,350 modules in `<2 ms`, ChatGPT & GitHub Copilot OAuth, GPT-6.1 Sol / GPT-6 Astra / GPT-5.6 models, inline composer mobile workspace switcher, `HMAC-SHA256` loopback security, and live `config/mcpServer/reload` MCP Marketplace.
+
+### 5. DeepSeek for Android (`com.ds.ide`, port `45187`)
+- Repository: https://github.com/Yhoanes/deepseek-android
+- Latest Signed APK: https://github.com/Yhoanes/deepseek-android/releases/latest
+- Official Page: https://yhoanes.github.io/deepseek-android/
+- Highlights: Authentic **DeepSeek Harness Desktop (`@deepseek-ai/dsh`)** workspace in a self-contained ~99 MB APK, native Rust + Zstandard `mmap` JNI cold-install bootstrap (`libds_bootstrap.so` extracting in `~2.5s`, `<1 ms` daily boot), pure-Bionic Rust `ds-box v0.3.1`, 1-click DeepSeek PKCE OAuth, offline `sherpa-onnx` SenseVoice speech input, Standard & Creator (`cordis`) agent presets, and zero-restart `dsh-hmr` ARM64 MCP plugins.
+
+## Shared Native ARM64 MCP Plugin Ecosystem
+- Repository: https://github.com/Yhoanes/antigravity-android-plugins
+- Included Native ARM64 Toolchains: **Craft Anything + Ghidra 12.1.4** (`v0.5.0`, 335 Rust MCP tools + native ARM64 Ghidra `decompile`/`sleigh`), **AGY Video Studio** (`h264_mediacodec` GPU), **AGY Video Gen** (Rust AI video diffusion), **Game Studio 2D/3D** (`v2.0.0`, Godot 4 Vulkan + `GDExtension` + local `.apk` builder), **Unity Studio Android** (`v1.0.0`, Unity 6.3 LTS + ported `unity-cli v1.0.0`), **AGY ADB Bridge** (`v1.0.1`, wireless 6-digit `uid=2000` TCP `127.0.0.1:5555`), **GitHub MCP** (91 tools), **Chrome DevTools** (headless ARM64 Chromium), and **Android CLI & Science Suite**.
 
 ## Other Open-Source Repositories by Yhoanes
 - **AI Engineering Harness**: https://github.com/Yhoanes/ai-engineering-harness — Deterministic governance, JSON-Schema Task Contracts, RBAC authority matrices, secret scanning, and context packing framework for AI coding agents (`Python 3.11+`, 684 automated tests).

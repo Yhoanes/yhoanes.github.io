@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="DgvjRDzGBHEDhDBqfUjo9qhoZBdBrGkTyBmM5uWyEOc" />
+  <title>Claude Code for Android (APK) — Official Full-Editor UI &amp; Native ARM64 IDE by Yhoanes</title>
+  <meta name="description" content="Download Claude Code for Android by Yhoanes: standalone Anthropic Claude Code Full-Editor agentic IDE &amp; native ARM64 Android APK with AndroidKeyStore AES-256-GCM encryption, docked PTY terminal, voice dictation, and 1-tap ARM64 MCP Plugins &amp; Skills Hub." />
+  <meta name="author" content="Yhoanes Ander Mendoza Rodriguez (Yhoanes)" />
+  <meta name="keywords" content="Claude Code for Android, Claude Code APK, Anthropic Claude Code Android, Yhoanes, Claude Code Full Editor mobile, cc-box Rust, AndroidKeyStore Claude, Craft Anything MCP" />
+  <link rel="canonical" href="https://yhoanes.github.io/claude-android/" />
+  <link rel="alternate" type="text/plain" title="LLM Documentation" href="https://yhoanes.github.io/llms.txt" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Claude Code for Android — Yhoanes" />
+  <meta property="og:title" content="Claude Code for Android — Official Anthropic Full-Editor UI &amp; Native ARM64 APK" />
+  <meta property="og:description" content="Standalone Anthropic Claude Code Full-Editor IDE &amp; native ARM64 Android APK by Yhoanes. Zero PRoot, Keystore AES-256-GCM vault, docked PTY terminal, 1-Tap MCP Plugins &amp; Skills Hub." />
+  <meta property="og:url" content="https://yhoanes.github.io/claude-android/" />
+  <meta property="og:image" content="https://yhoanes.github.io/claude-android/assets/hero_session.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Claude Code for Android (by Yhoanes)" />
+  <meta name="twitter:description" content="Standalone Anthropic Claude Code Full-Editor IDE &amp; native ARM64 Android APK — Keystore AES-256-GCM, docked PTY, voice dictation &amp; 1-Tap ARM64 MCP Hub." />
+  <meta name="twitter:image" content="https://yhoanes.github.io/claude-android/assets/hero_session.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://yhoanes.github.io/#person",
+        "name": "Yhoanes Ander Mendoza Rodriguez",
+        "alternateName": "Yhoanes",
+        "url": "https://yhoanes.github.io/",
+        "sameAs": ["https://github.com/Yhoanes"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://yhoanes.github.io/claude-android/#software",
+        "name": "Claude Code for Android",
+        "alternateName": [
+          "Anthropic Claude Code for Android APK",
+          "Claude Code Full-Editor Android IDE",
+          "Yhoanes Claude Code Android"
+        ],
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Android 9.0+ (ARM64 / AArch64)",
+        "url": "https://yhoanes.github.io/claude-android/",
+        "downloadUrl": "https://github.com/Yhoanes/claude-android/releases/latest",
+        "installUrl": "https://github.com/Yhoanes/claude-android/releases/latest",
+        "releaseNotes": "https://github.com/Yhoanes/claude-android/releases",
+        "screenshot": "https://yhoanes.github.io/claude-android/assets/hero_session.jpg",
+        "author": { "@id": "https://yhoanes.github.io/#person" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Standalone Anthropic Claude Code Full-Editor autonomous coding IDE and native ARM64 Android APK with AndroidKeyStore AES-256-GCM secret vault, Bionic cc-box userspace, docked PTY terminal, native voice dictation, and 1-tap ARM64 MCP Plugins & Skills Hub."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://yhoanes.github.io/claude-android/#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Claude Code for Android require Root, Termux, or PRoot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Claude Code for Android runs 100% natively in Android userspace inside its own 10-byte prefix-aligned sandbox (com.cc.ide) via direct Linux kernel execve() with zero Termux dependency and zero PRoot overhead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are Claude.ai credentials and API keys protected on Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claude.ai OAuth tokens remain inside the app's private 0600 sandbox, while custom API keys are encrypted at rest with hardware-backed AndroidKeyStore AES-256-GCM (SecretStore) and protected locally by per-boot 256-bit HttpOnly CC_HOST_TOKEN CSRF and DNS-rebinding guards."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use my Claude Pro, Max, Team, or Enterprise subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Sign in seamlessly with your Claude.ai Subscription via Chrome Custom Tabs OAuth, Anthropic Console, or any custom ANTHROPIC_API_KEY and ANTHROPIC_BASE_URL endpoint."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="https://yhoanes.github.io/claude-android/">
+        <img src="assets/logo.png" alt="Claude Code for Android icon" width="32" height="32" />
+        <span>Claude Code for Android</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#comparison">Architecture</a>
+        <a href="#walkthrough">Interface</a>
+        <a href="#plugins">Plugins &amp; Skills</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://yhoanes.github.io/">All 5 IDEs</a>
+        <a href="https://github.com/Yhoanes/claude-android">GitHub</a>
+      </nav>
+    </div>
+    <div class="suite-bar">
+      <div class="container suite-bar-inner" aria-label="Android ARM64 IDE Suite">
+        <span class="suite-label">ARM64 Suite:</span>
+        <a class="suite-pill" href="../">Overview</a>
+        <a class="suite-pill" href="../antigravity-android/">
+          <img src="../antigravity-android/assets/logo.png" alt="" width="18" height="18" />
+          Antigravity
+        </a>
+        <a class="suite-pill" href="../opencode-android/">
+          <img src="../opencode-android/assets/logo.png" alt="" width="18" height="18" />
+          OpenCode
+        </a>
+        <a class="suite-pill" href="../claude-android/" aria-current="page">
+          <img src="../claude-android/assets/logo.png" alt="" width="18" height="18" />
+          Claude Code
+        </a>
+        <a class="suite-pill" href="../codex-android/">
+          <img src="../codex-android/assets/logo.png" alt="" width="18" height="18" />
+          Codex
+        </a>
+        <a class="suite-pill" href="../deepseek-android/">
+          <img src="../deepseek-android/assets/logo.png" alt="" width="18" height="18" />
+          DeepSeek
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="version-pill">
+            <span class="version-dot" aria-hidden="true"></span>
+            <span id="live-release-badge">Latest Release &middot; Official Full-Editor UI &middot; Engineered by Yhoanes</span>
+          </div>
+          <h1>Claude Code for Android</h1>
+          <p class="hero-lead">
+            Standalone <strong>Anthropic Claude Code (<code>v2.1.325</code>) Full-Editor</strong> autonomous coding IDE and native <strong>ARM64 Android</strong> APK (<code>com.cc.ide</code>). Pairs native ARM64 <code>claude.elf</code> + Bionic Node Extension Host with hardware-backed <code>AndroidKeyStore AES-256-GCM</code> credential security, docked PTY terminal, native voice dictation, and a 1-tap ARM64 MCP Plugins &amp; Skills Hub.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" id="download-apk-btn" href="https://github.com/Yhoanes/claude-android/releases/latest">
+              Download Latest APK
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Yhoanes/claude-android">
+              View Source on GitHub
+            </a>
+          </div>
+          <div class="checksum-box" id="checksum-box" hidden aria-label="APK SHA-256 checksum">
+            <code id="apk-sha"></code>
+            <button type="button" class="copy-btn" id="copy-sha-btn">Copy hash</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="device-frame">
+            <div class="device-screen">
+              <img src="assets/hero_session.jpg" alt="Claude Code for Android live Full-Editor agent session" width="1800" height="2880" />
+            </div>
+            <p class="device-caption">
+              Authentic Claude Code Full-Editor UI (warm Claude Dark &amp; Light themes) running natively on Android ARM64.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Comparison -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <h2>Capability-hardened native ARM64 architecture</h2>
+        <p class="section-intro">
+          Executes Anthropic's unmodified Full-Editor extension protocol against a native ARM64 <code>claude.elf</code> engine and a 10-byte prefix-aligned Bionic Linux userspace (<code>/data/user/0/com.cc.ide/files/usr</code>) powered by Rust <code>cc-box</code>.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Subsystem</th>
+                <th>Claude Code for Android (by Yhoanes)</th>
+                <th>CLI-in-PRoot / SSH Wrappers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Interface &amp; UX</strong></td>
+                <td class="highlight-col">100% official Claude Code Full-Editor UI (<code>IS_FULL_EDITOR = true</code>): thinking blocks, plan/auto modes, rich file diffs, bookmarks &amp; slash commands</td>
+                <td>Raw terminal scrollback with cramped mobile keyboard handling</td>
+              </tr>
+              <tr>
+                <td><strong>Credential security</strong></td>
+                <td class="highlight-col"><code>AndroidKeyStore AES-256-GCM</code> (<code>SecretStore</code>) + per-boot 256-bit <code>HttpOnly; SameSite=Strict</code> <code>CC_HOST_TOKEN</code></td>
+                <td>Plaintext API keys on disk or exposed local ports</td>
+              </tr>
+              <tr>
+                <td><strong>Workspace &amp; PTY</strong></td>
+                <td class="highlight-col">Multi-project Android SAF sidebar + persistent docked <code>xterm.js</code> Bionic PTY terminal with mobile modifier bar (<code>Esc</code>, <code>Tab</code>, <code>Ctrl+C</code>)</td>
+                <td>Single directory session without visual file tracking</td>
+              </tr>
+              <tr>
+                <td><strong>Voice dictation</strong></td>
+                <td class="highlight-col">On-demand native <code>AudioRecord</code> PCM streaming bridge (<code>MicBridge</code> + <code>cc-arecord</code>) with zero startup permission popups</td>
+                <td>Unsupported in headless containers</td>
+              </tr>
+              <tr>
+                <td><strong>Plugins &amp; Skills</strong></td>
+                <td class="highlight-col">1-tap ARM64 Rust MCP Marketplace + <code>.zip</code> / <code>.skill</code> uploader + 7 pre-bundled Anthropic document &amp; design skills</td>
+                <td>Manual CLI config editing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Pillars -->
+    <section class="section">
+      <div class="container">
+        <h2>Core engineering pillars</h2>
+        <p class="section-intro">
+          Self-contained APK compiled via an 11-phase Gradle-free deterministic pipeline with RSA-4096 certificate-pinned GitHub Releases OTA updates.
+        </p>
+
+        <div class="spec-grid">
+          <div class="spec-block">
+            <h3>Claude.ai Subscription OAuth &amp; Keystore Vault</h3>
+            <p>Sign in with Claude Pro, Max, Team, or Enterprise via Chrome Custom Tabs OAuth, Anthropic Console, or custom <code>ANTHROPIC_API_KEY</code> / <code>ANTHROPIC_BASE_URL</code> encrypted in hardware-backed <code>AndroidKeyStore</code>.</p>
+          </div>
+          <div class="spec-block">
+            <h3>10-byte Bionic userspace (<code>com.cc.ide</code>)</h3>
+            <p>Exact path-length parity with standard Bionic packages allows native kernel <code>execve()</code> of <code>clang</code>, <code>rust</code>, <code>python</code>, <code>nodejs</code>, <code>git</code>, <code>ripgrep</code>, <code>openjdk-21</code>, and <code>ghidra</code> via Rust <code>cc-box</code>.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Multi-project SAF sidebar &amp; docked terminal</h3>
+            <p>Switch cleanly across multiple local repositories, inspect modified session files, and pop open a persistent per-project <code>opencode-pty</code> + Bionic <code>bash</code> terminal directly below the conversation.</p>
+          </div>
+          <div class="spec-block">
+            <h3>Certificate-pinned in-place OTA updates</h3>
+            <p><code>AppUpdateManager</code> verifies downloaded APK SHA-256 signing certificates against the installed production key before updating in-place, preserving all sessions, credentials, and installed plugins.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Real Device Walkthrough -->
+    <section class="section" id="walkthrough">
+      <div class="container">
+        <h2>Real device walkthrough</h2>
+        <p class="section-intro">
+          Captured directly on Android ARM64 hardware running <code>com.cc.ide</code> on loopback port <code>45177</code>.
+        </p>
+
+        <div class="walkthrough-layout">
+          <div class="tab-list" role="tablist" aria-label="Claude Code interface captures">
+            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="cc-panel-hero" id="cc-tab-hero" type="button">
+              <strong>Full-Editor Agent Session</strong>
+              <span>Thinking blocks, tool approvals, rich file diffs &amp; warm Claude Dark theme</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="cc-panel-side" id="cc-tab-side" type="button">
+              <strong>Multi-Project Sidebar</strong>
+              <span>Android SAF repositories, per-folder threads &amp; instant session switching</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="cc-panel-term" id="cc-tab-term" type="button">
+              <strong>Docked Native PTY Terminal</strong>
+              <span>Persistent Bionic bash terminal with Esc, Tab, Ctrl+C &amp; arrow modifier bar</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="cc-panel-plug" id="cc-tab-plug" type="button">
+              <strong>1-Tap ARM64 Plugins Hub</strong>
+              <span>Craft Anything + Ghidra, Video Gen/Studio, Godot, Unity 6, ADB Bridge &amp; GitHub</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="cc-panel-skill" id="cc-tab-skill" type="button">
+              <strong>Official &amp; Custom Skills Hub</strong>
+              <span>7 pre-bundled Anthropic skills + 1-tap .zip / .skill package import</span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="cc-panel-login" id="cc-tab-login" type="button">
+              <strong>Clean Official Onboarding</strong>
+              <span>Claude.ai OAuth, Console &amp; Keystore API key setup with zero premature popups</span>
+            </button>
+          </div>
+
+          <div>
+            <div class="device-frame tab-panel" id="cc-panel-hero" role="tabpanel" aria-labelledby="cc-tab-hero">
+              <div class="device-screen">
+                <img src="assets/hero_session.jpg" alt="Claude Code for Android Full-Editor session" loading="lazy" />
+              </div>
+              <p class="device-caption">Authentic Anthropic Claude Code v2.1.325 Full-Editor UI running natively on Android ARM64.</p>
+            </div>
+            <div class="device-frame tab-panel" id="cc-panel-side" role="tabpanel" aria-labelledby="cc-tab-side" hidden>
+              <div class="device-screen">
+                <img src="assets/sidebar_projects.jpg" alt="Projects and multi-session sidebar in Claude Code for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Responsive multi-project workspace sidebar with per-directory conversation history.</p>
+            </div>
+            <div class="device-frame tab-panel" id="cc-panel-term" role="tabpanel" aria-labelledby="cc-tab-term" hidden>
+              <div class="device-screen">
+                <img src="assets/terminal_dock.jpg" alt="Docked native ARM64 PTY terminal in Claude Code for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Docked xterm.js PTY terminal backed by Bionic bash and touch modifier keys.</p>
+            </div>
+            <div class="device-frame tab-panel" id="cc-panel-plug" role="tabpanel" aria-labelledby="cc-tab-plug" hidden>
+              <div class="device-screen">
+                <img src="assets/plugins_marketplace.jpg" alt="1-Tap native ARM64 MCP Plugins Marketplace in Claude Code" loading="lazy" />
+              </div>
+              <p class="device-caption">1-tap native ARM64 Rust MCP plugins marketplace inside Settings &rarr; Plugins.</p>
+            </div>
+            <div class="device-frame tab-panel" id="cc-panel-skill" role="tabpanel" aria-labelledby="cc-tab-skill" hidden>
+              <div class="device-screen">
+                <img src="assets/skills_hub.jpg" alt="Official and custom Skills Hub in Claude Code for Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Installed official Anthropic document/design skills and custom .skill package manager.</p>
+            </div>
+            <div class="device-frame tab-panel" id="cc-panel-login" role="tabpanel" aria-labelledby="cc-tab-login" hidden>
+              <div class="device-screen">
+                <img src="assets/login_screen.jpg" alt="Official Claude Code sign-in screen on Android" loading="lazy" />
+              </div>
+              <p class="device-caption">Official Claude Code sign-in screen supporting Claude.ai OAuth and Keystore-encrypted API keys.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Native ARM64 Plugins Table -->
+    <section class="section" id="plugins">
+      <div class="container">
+        <h2>1-tap ARM64 MCP plugins &amp; skills ecosystem</h2>
+        <p class="section-intro">
+          Manage compiled Android ARM64 Rust MCP servers in <em>Settings &rarr; Plugins</em> (synced automatically into <code>~/.claude/.claude.json</code>) and custom skill bundles in <em>Settings &rarr; Skills</em>.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Plugin</th>
+                <th>Version</th>
+                <th>Capabilities on Android ARM64</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Craft Anything + Ghidra</strong></td>
+                <td><code>v0.5.0</code></td>
+                <td>335 native Rust MCP tools (<code>&lt; 50 MB</code> RAM) for ELF/PE/Mach-O, APK/DEX, .NET/NativeAOT, WASM, ESP32/UF2, Godot <code>.pck</code>, Unity IL2CPP &amp; Wii <code>.dol</code> + native ARM64 <strong>Ghidra 12.1.4</strong></td>
+              </tr>
+              <tr>
+                <td><strong>AGY Video Gen &amp; Video Studio</strong></td>
+                <td><code>v1.0 / v4.0</code></td>
+                <td>Native Rust AI video generation (Text/Image-to-Video, Lip-Sync, GPU upscale) + 60 FPS <code>h264_mediacodec</code> GPU editor with Karaoke captions &amp; <code>-14 LUFS</code> mastering</td>
+              </tr>
+              <tr>
+                <td><strong>Game Studio 2D/3D (Godot 4)</strong></td>
+                <td><code>v2.0.0</code></td>
+                <td>16 Rust MCP tools + ARM64 C++/Rust <code>GDExtension</code> compiler + 100% local offline signed <code>.apk</code> builder &amp; 120–144 FPS Vulkan profiler</td>
+              </tr>
+              <tr>
+                <td><strong>Unity Studio Android</strong></td>
+                <td><code>v1.0.0</code></td>
+                <td>13 Rust MCP tools + ported <code>unity-cli v1.0.0</code> for Unity 6.3 LTS URP 2D/3D scaffolding, YAML/<code>.meta</code> auditing &amp; <code>$0</code> GameCI builds</td>
+              </tr>
+              <tr>
+                <td><strong>AGY ADB Bridge</strong></td>
+                <td><code>v1.0.1</code></td>
+                <td>Standalone Rust wireless ADB 6-digit pairing (<code>127.0.0.1:5555</code> offline TCP — no external Shizuku app required) + 2s Shizuku fallback</td>
+              </tr>
+              <tr>
+                <td><strong>GitHub MCP &amp; Chrome DevTools</strong></td>
+                <td><code>v2.1.1+</code></td>
+                <td>91 native ARM64 GitHub tools + Bionic Git/GH OAuth setup + headless ARM64 Chromium DevTools automation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Does Claude Code for Android require Root, Termux, or PRoot?</summary>
+            <p>No. It runs 100% natively in Android userspace inside its own standalone sandbox (<code>com.cc.ide</code>) with zero Termux dependency and zero <code>PRoot</code> syscall translation overhead.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How are my credentials protected?</summary>
+            <p>Claude.ai OAuth tokens stay strictly inside the app's private <code>0600</code> sandbox, and custom API keys entered in <em>Settings &rarr; API &amp; Model</em> are encrypted with hardware-backed <code>AndroidKeyStore AES-256-GCM</code> (<code>SecretStore</code>) and injected only into memory.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do elevated uid=2000(shell) ADB commands work?</summary>
+            <p>Nothing elevated is active by default. Whenever you need ADB-level shell access, open <em>Settings &rarr; Plugins</em>, install <strong>AGY ADB Bridge</strong>, and pair once using Android's 6-digit Wireless Debugging code (or authorize via Shizuku).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Claude Code for Android</strong> &middot; Created &amp; engineered by <a href="https://github.com/Yhoanes">Yhoanes (Yhoanes Ander Mendoza Rodriguez)</a>.<br />
+        Licensed under Non-Commercial &amp; Mandatory Attribution (BY-NC).
+      </div>
+      <div class="footer-links">
+        <a href="../">All 5 IDEs</a> &middot;
+        <a href="https://github.com/Yhoanes/claude-android">Repository</a> &middot;
+        <a href="https://github.com/Yhoanes/claude-android/releases">Releases</a> &middot;
+        <a href="https://yhoanes.github.io/llms.txt">llms.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var currentSha = '';
+      var dlBtn = document.getElementById('download-apk-btn');
+      var shaBox = document.getElementById('checksum-box');
+      var shaCode = document.getElementById('apk-sha');
+      var copyBtn = document.getElementById('copy-sha-btn');
+      var badge = document.getElementById('live-release-badge');
+
+      fetch('https://api.github.com/repos/Yhoanes/claude-android/releases/latest')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (release) {
+          if (!release) return;
+          if (badge && release.tag_name) {
+            badge.textContent = 'Latest Release (' + release.tag_name + ') \u00b7 Official Full-Editor ARM64 \u00b7 Engineered by Yhoanes';
+          }
+          var assets = Array.isArray(release.assets) ? release.assets : [];
+          var apk = null;
+          for (var i = 0; i < assets.length; i++) {
+            if (assets[i].name && /\.apk$/i.test(assets[i].name)) { apk = assets[i]; break; }
+          }
+          if (apk && apk.browser_download_url && dlBtn) { dlBtn.href = apk.browser_download_url; }
+          if (apk && apk.digest && shaBox && shaCode) {
+            currentSha = String(apk.digest).replace(/^sha256:/i, '');
+            shaCode.textContent = 'SHA-256: ' + currentSha;
+            shaBox.removeAttribute('hidden');
+          }
+        })
+        .catch(function () {});
+
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener('click', function () {
+          if (!currentSha) return;
+          navigator.clipboard.writeText(currentSha).then(function () {
+            copyBtn.textContent = 'Copied';
+            setTimeout(function () { copyBtn.textContent = 'Copy hash'; }, 1800);
+          });
+        });
+      }
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetId = tab.getAttribute('aria-controls');
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
+          panels.forEach(function (p) {
+            if (p.id === targetId) { p.removeAttribute('hidden'); }
+            else { p.setAttribute('hidden', ''); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
