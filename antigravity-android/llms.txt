@@ -10,6 +10,7 @@
 - Codex for Android: https://yhoanes.github.io/codex-android/
 - DeepSeek for Android (Harness Desktop): https://yhoanes.github.io/deepseek-android/
 - GitHub Profile: https://github.com/Yhoanes
+- Official Discord Community (Yhoanes · ARM64 & AI Lab): https://discord.gg/BuMGkGCtBv
 
 ## Native ARM64 Android Agentic IDE Suite (5 Standalone APKs)
 

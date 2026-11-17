@@ -861,6 +861,129 @@ details.faq-item p {
   max-width: 74ch;
 }
 
+/* Social & Discord Community Elements */
+.btn-discord {
+  background: #5865f2;
+  color: #ffffff;
+  border-color: #5865f2;
+}
+
+.btn-discord:hover {
+  background: #6d78f9;
+  border-color: #6d78f9;
+  color: #ffffff;
+}
+
+.nav-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary) !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-social-pill:hover {
+  background: var(--bg-elevated);
+  border-color: var(--accent-cobalt);
+  text-decoration: none;
+}
+
+.nav-social-pill--discord {
+  background: rgba(88, 101, 242, 0.14);
+  border-color: rgba(88, 101, 242, 0.45);
+  color: #dbe0ff !important;
+}
+
+.nav-social-pill--discord:hover {
+  background: rgba(88, 101, 242, 0.26);
+  border-color: #5865f2;
+  color: #ffffff !important;
+}
+
+.icon-svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.community-card {
+  background: linear-gradient(145deg, rgba(26, 33, 45, 0.96), rgba(20, 25, 34, 0.98));
+  border: 1px solid rgba(88, 101, 242, 0.42);
+  border-radius: 14px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.community-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(88, 101, 242, 0.15);
+  border: 1px solid rgba(88, 101, 242, 0.4);
+  color: #c7d0ff;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.community-card h2 {
+  margin: 0 0 12px;
+}
+
+.community-card p {
+  margin: 0 0 22px;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+.channel-preview-box {
+  background: #0b0e14;
+  border: 1px solid var(--border-subtle);
+  border-radius: 11px;
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  display: grid;
+  gap: 8px;
+}
+
+.channel-preview-cat {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.channel-preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+}
+
+.channel-preview-row span:last-child {
+  font-size: 0.71rem;
+  color: var(--accent-amber);
+}
+
 /* Footer */
 .site-footer {
   padding: 40px 0 56px;
@@ -887,7 +1010,8 @@ details.faq-item p {
   .walkthrough-layout,
   .spec-grid,
   .ide-suite-grid,
-  .ide-card--featured {
+  .ide-card--featured,
+  .community-card {
     grid-template-columns: 1fr;
   }
   .stats-strip {

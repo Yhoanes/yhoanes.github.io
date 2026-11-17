@@ -4,6 +4,7 @@ Official GitHub Pages website and documentation hub for the **Native ARM64 Andro
 
 ## Live Pages
 - **Main Engineering Hub:** https://yhoanes.github.io/
+- **Official Discord Community (`Yhoanes · ARM64 & AI Lab`):** https://discord.gg/BuMGkGCtBv
 - **Antigravity for Android:** https://yhoanes.github.io/antigravity-android/
 - **OpenCode for Android:** https://yhoanes.github.io/opencode-android/
 - **Claude Code for Android:** https://yhoanes.github.io/claude-android/
